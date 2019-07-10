@@ -2,8 +2,9 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 
 const Login = ({ authentication, handleInput, handleLogin }) => {
+  console.log(authentication);
   if (authentication) {
-    return <Redirect to="/courses" />
+    return <Redirect to="/dashboard" />
   } else {
     return (
       <form>
