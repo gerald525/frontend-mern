@@ -1,26 +1,70 @@
 import React from 'react';
-import logo from './logo.svg';
+import Routes from './Routes'
 import './App.css';
+const axios = require('axios')
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      authentication: false,
+      courseData: null
+    }
+  }
+  
+  login = async (email, password) => {
+    const credentials = { email: email, password: password }
+    try {
+      return await axios.post('http://localhost:5000/login', credentials)
+    } catch(err) {
+      console.log('Could not contact the server');
+      this.setState({ error: {
+        message: 'Could not contact the server',
+        status: 500
+        }
+      })
+    }
+  }
+
+  handleLogin = async (event) =>  {
+    event.preventDefault()
+    const { email, password } = this.state
+    const response = await this.login(email, password)
+    console.log(response);
+    if (response.error) {
+      this.setState({ error: {
+        message: response.error.message,
+        status: response.error.status
+        }
+      })
+    } else {
+      this.setState({
+        currentUser: response.user,
+        authenticated: true
+      })
+      localStorage.setItem('token', response.token)
+    }
+  }
+
+  handleInput = (event) => {
+    event.preventDefault();
+    this.setState({
+      [event.target.id]: event.target.value
+    })
+  }
+  render() {
+    const { authentication, courseData } = this.state
+    return (
+      <div className="App">
+        <Routes 
+          handleLogin={this.handleLogin} 
+          handleInput={this.handleInput}
+          authentication={authentication}
+          courseData={courseData}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
