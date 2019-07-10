@@ -2,7 +2,6 @@ import React from 'react';
 import Routes from './Routes'
 import './App.css';
 import Navbar from './components/Navbar'
-// import { Redirect } from 'react-router-dom'
 const axios = require('axios')
 
 class App extends React.Component {
@@ -78,7 +77,6 @@ class App extends React.Component {
           authentication={authentication}
           courseData={courseData}
           authenticateUser={this.authenticateUser}
-          // logout={this.logout}
         />
       </div>
     );
