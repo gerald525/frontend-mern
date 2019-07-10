@@ -15,9 +15,9 @@ class App extends React.Component {
   login = async (email, password) => {
     const credentials = { email: email, password: password }
     try {
-      return await axios.post('http://localhost:5000/login', credentials)
+      return await axios.post('http://localhost:5000/auth/login', credentials)
     } catch(err) {
-      console.log('Could not contact the server');
+      console.log(err.message);
       this.setState({ error: {
         message: 'Could not contact the server',
         status: 500
