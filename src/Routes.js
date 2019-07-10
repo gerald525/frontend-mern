@@ -7,7 +7,7 @@ import Dashboard from './components/Dashboard'
 
 class Routes extends React.Component {
   render() {
-    const { authentication, authenticateUser, courseData, handleLogin, handleInput } = this.props
+    const { authentication, authenticateUser, courseData, handleLogin, handleInput, loadCourseData } = this.props
     return (
       <Switch>
         <Route path="/login" render={() => {
@@ -15,7 +15,12 @@ class Routes extends React.Component {
         }} />
         <Route path="/dashboard" render={() => {
           console.log('dashboard route')
-          return <Dashboard courseData={courseData} authentication={authentication} authenticateUser={authenticateUser} />
+          return   <Dashboard 
+                    courseData={courseData} 
+                    authentication={authentication} 
+                    authenticateUser={authenticateUser} 
+                    loadCourseData={loadCourseData}
+                  />
         }} />
         <Route path="/course/:name" component={Course} authenticateUser={authenticateUser} />
         <Route component={NoMatch} />

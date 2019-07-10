@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Links = ({ logout, authentication }) => {
   return (
     <>
-      {authentication ? <button onClick={logout}>Logout</button> : <Link to="/login">Login</Link>}
+      {authentication ? <p onClick={logout}>Logout</p> : <Link to="/login">Login</Link>}
     </>
   );
 };

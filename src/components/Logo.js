@@ -1,10 +1,9 @@
 import React from 'react';
+require('./Logo.css')
 
 const Logo = () => {
   return (
-    <div>
-      
-    </div>
+    <img src={require("../images/MI_logo.png")} alt={'MilkIt Logo'} />
   );
 };
 
