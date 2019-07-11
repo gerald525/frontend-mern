@@ -8,7 +8,7 @@ import Help from './components/Help'
 
 class Routes extends React.Component {
   render() {
-    const { courseData, handleLogin, handleInput, loadCourseData } = this.props
+    const { courseData, handleLogin, handleInput, loadProgramData } = this.props
     return (
       <Switch>
         <Route path="/login" render={() => {
@@ -21,7 +21,7 @@ class Routes extends React.Component {
           console.log('dashboard route')
           return   <Dashboard 
                     courseData={courseData} 
-                    loadCourseData={loadCourseData}
+                    loadProgramData={loadProgramData}
                   />
         }} />
         <Route path="/course/:name" component={Course} />

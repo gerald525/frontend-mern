@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      courseData: null
+      programData: null
     }
   }
   
@@ -30,6 +30,9 @@ class App extends React.Component {
   logout = () => {
     console.log('logging out');
     localStorage.removeItem('token')
+    this.setState({
+      error: null
+    })
   }
 
   handleLogin = async (event) =>  {
@@ -57,13 +60,14 @@ class App extends React.Component {
     })
   }
 
-  fetchCourseData = async () => {
-    console.log('fetch course data function');
+  fetchProgram = async () => {
+    console.log('fetch Program function');
+    const url = 'http://localhost:5000/user/program'
+    const options = {
+      token: localStorage.token
+    }
     try {
-      return await axios.get('http://localhost/private/coursedata', {
-        'Content-Type': 'application/json',
-        'Authorization': `Basic ${this.state.currentUser.token}`
-      })
+      return await axios.get(url, options)
     } catch(err) {
       console.log(err.message);
       this.setState({ error: {
@@ -74,10 +78,10 @@ class App extends React.Component {
     }
   }
 
-  loadCourseData = async () => {
-    console.log('loading data');
+  loadProgramData = async () => {
+    console.log('Load Program Data function');
     try {
-      const response = await this.fetchCourseData()
+      const response = await this.fetchProgram()
       console.log(response);
       if (response.data.error) {
         this.setState({ 
@@ -88,10 +92,11 @@ class App extends React.Component {
           loading: false
         })
       } else {
+        console.log('updating state with Program Data');
         this.setState({
-          courseData: response.data.courseData
+          programData: response.data.programData
         })
-        console.log(this.state.courseData);
+        console.log(this.state.programData);
       }
     } catch(err) {
       this.setState({ 
@@ -105,7 +110,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { courseData, error } = this.state
+    const { programData, error } = this.state
     return (
       <div className="App">
         <Navbar logout={this.logout} />
@@ -113,8 +118,8 @@ class App extends React.Component {
         <Routes 
           handleLogin={this.handleLogin} 
           handleInput={this.handleInput}
-          courseData={courseData}
-          loadCourseData={this.loadCourseData}
+          programData={programData}
+          loadProgramData={this.loadProgramData}
         />
       </div>
     );
