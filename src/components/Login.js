@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
 
-const Login = ({ authentication, handleInput, handleLogin }) => {
-  console.log(authentication);
-  if (authentication) {
+const Login = ({ handleInput, handleLogin }) => {
+  if (localStorage.token) {
+    console.log('authenticated, redirect to dashboard')
     return <Redirect to="/dashboard" />
   } else {
     return (

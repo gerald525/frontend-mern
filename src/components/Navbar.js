@@ -1,15 +1,16 @@
 import React from 'react';
 import Search from './Search'
 import Logo from './Logo'
-import Links from './Links'
 import Profile from './Profile'
+import { Link } from 'react-router-dom'
 
-const Navbar = ({ authentication, logout }) => {
+const Navbar = ({ logout }) => {
+  const token = localStorage.token
   return (
     <div>
       <Logo />
       <Search />
-      <Links authentication={authentication} logout={logout}/>
+      {token ? <p onClick={logout}>Logout</p> : <Link to="/help">Help Center</Link>}
       <Profile />
     </div>
   );

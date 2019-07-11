@@ -3,7 +3,7 @@ require('./Logo.css')
 
 const Logo = () => {
   return (
-    <img src={require("../images/MI_logo.png")} alt={'MilkIt Logo'} />
+    <img src={require("../images/MI_logo.png")} alt={'Milk It Logo'} />
   );
 };
 

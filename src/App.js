@@ -9,7 +9,6 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      authentication: false,
       courseData: null
     }
   }
@@ -29,16 +28,8 @@ class App extends React.Component {
   }
 
   logout = () => {
+    console.log('logging out');
     localStorage.removeItem('token')
-    this.setState({ authentication: false })
-  }
-
-  authenticateUser = () => {  
-    if (this.state.currentUser && localStorage.token) {
-      return this.state.authentication ? true : localStorage.token === this.state.currentUser.token
-    } else {
-      return false
-    }
   }
 
   handleLogin = async (event) =>  {
@@ -55,7 +46,6 @@ class App extends React.Component {
       localStorage.setItem('token', response.data.token)
       this.setState({
         currentUser: response.data.user, // {currentUser: { foundUser, token }}
-        authentication: true
       })
     }
   }
@@ -115,17 +105,15 @@ class App extends React.Component {
   }
 
   render() {
-    const { authentication, courseData, error } = this.state
+    const { courseData, error } = this.state
     return (
       <div className="App">
-        <Navbar logout={this.logout} authentication={authentication} />
+        <Navbar logout={this.logout} />
         {error && <ErrorScreen status={error.status} message={error.message}/>}
         <Routes 
           handleLogin={this.handleLogin} 
           handleInput={this.handleInput}
-          authentication={authentication}
           courseData={courseData}
-          authenticateUser={this.authenticateUser}
           loadCourseData={this.loadCourseData}
         />
       </div>
