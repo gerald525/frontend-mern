@@ -1,14 +1,15 @@
 import React from 'react';
 import Routes from './Routes'
 import './App.css';
+import Navbar from './components/Navbar'
+import ErrorScreen from './components/ErrorScreen'
 const axios = require('axios')
 
 class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      authentication: false,
-      courseData: null
+      programData: null
     }
   }
   
@@ -26,23 +27,29 @@ class App extends React.Component {
     }
   }
 
+  logout = () => {
+    console.log('logging out');
+    localStorage.removeItem('token')
+    this.setState({
+      error: null
+    })
+  }
+
   handleLogin = async (event) =>  {
     event.preventDefault()
     const { email, password } = this.state
     const response = await this.login(email, password)
-    console.log(response);
-    if (response.error) {
+    if (response.data.error) {
       this.setState({ error: {
-        message: response.error.message,
-        status: response.error.status
+        message: response.data.error.message,
+        status: response.data.error.status
         }
       })
     } else {
+      localStorage.setItem('token', response.data.token)
       this.setState({
-        currentUser: response.user,
-        authenticated: true
+        currentUser: response.data.user, // {currentUser: { foundUser, token }}
       })
-      localStorage.setItem('token', response.token)
     }
   }
 
@@ -52,15 +59,67 @@ class App extends React.Component {
       [event.target.id]: event.target.value
     })
   }
+
+  fetchProgram = async () => {
+    console.log('fetch Program function');
+    const url = 'http://localhost:5000/user/program'
+    const options = {
+      token: localStorage.token
+    }
+    try {
+      return await axios.get(url, options)
+    } catch(err) {
+      console.log(err.message);
+      this.setState({ error: {
+        message: 'Could not contact the server',
+        status: 500
+        }
+      })
+    }
+  }
+
+  loadProgramData = async () => {
+    console.log('Load Program Data function');
+    try {
+      const response = await this.fetchProgram()
+      console.log(response);
+      if (response.data.error) {
+        this.setState({ 
+          error: {
+            message: response.data.error.message,
+            status: response.data.error.status
+          },
+          loading: false
+        })
+      } else {
+        console.log('updating state with Program Data');
+        this.setState({
+          programData: response.data.programData
+        })
+        console.log(this.state.programData);
+      }
+    } catch(err) {
+      this.setState({ 
+        error: {
+          message: err.message,
+          status: err.status
+        },
+        loading: false
+      })
+    }
+  }
+
   render() {
-    const { authentication, courseData } = this.state
+    const { programData, error } = this.state
     return (
       <div className="App">
+        <Navbar logout={this.logout} />
+        {error && <ErrorScreen status={error.status} message={error.message}/>}
         <Routes 
           handleLogin={this.handleLogin} 
           handleInput={this.handleInput}
-          authentication={authentication}
-          courseData={courseData}
+          programData={programData}
+          loadProgramData={this.loadProgramData}
         />
       </div>
     );
