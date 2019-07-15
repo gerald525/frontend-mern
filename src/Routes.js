@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
-import Login from './components/Login'
-import Course from './components/Course'
+import Login from './components/Login/Login'
+import Course from './components/Course/Course'
 import NoMatch from './components/NoMatch'
-import Dashboard from './components/Dashboard'
-import Help from './components/Help'
+import Dashboard from './components/Dashboard/Dashboard'
+import Help from './components/Help/Help'
 
 class Routes extends React.Component {
   render() {
