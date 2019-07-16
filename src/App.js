@@ -16,7 +16,7 @@ class App extends React.Component {
   login = async (email, password) => {
     const credentials = { email: email, password: password }
     try {
-      return await axios.post('http://localhost:5000/auth/login', credentials)
+      return await axios.post(process.env.REACT_APP_API_URL + '/auth/login', credentials)
     } catch(err) {
       console.log(err.message);
       this.setState({ error: {
@@ -62,7 +62,7 @@ class App extends React.Component {
 
   fetchProgram = async () => {
     console.log('fetch Program function');
-    const url = 'http://localhost:5000/user/program'
+    const url = process.env.REACT_APP_API_URL + '/user/program'
     const options = {
       token: localStorage.token
     }
