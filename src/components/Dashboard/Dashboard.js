@@ -1,6 +1,6 @@
 import React from 'react';
-import CourseList from './CourseList';
-import Loading from './Loading'
+import CourseList from '../CourseList/CourseList';
+import Loading from '../Loading/Loading'
 import { Redirect } from 'react-router-dom'
 
 const Dashboard = ({ programData, loadProgramData }) => {

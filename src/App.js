@@ -1,9 +1,10 @@
 import React from 'react';
-import Routes from './Routes'
+import Routes from './Routes';
 import './App.css';
-import Navbar from './components/Navbar'
-import ErrorScreen from './components/ErrorScreen'
+import Navbar from './components/Navbar';
+import ErrorScreen from './components/ErrorScreen/ErrorScreen';
 const axios = require('axios')
+
 
 class App extends React.Component {
   constructor(){

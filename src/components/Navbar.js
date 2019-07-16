@@ -1,7 +1,7 @@
 import React from 'react';
-import Search from './Search'
+import Search from './Search/Search'
 import Logo from './Logo'
-import Profile from './Profile'
+import Profile from './Profile/Profile'
 import { Link } from 'react-router-dom'
 
 const Navbar = ({ logout }) => {
