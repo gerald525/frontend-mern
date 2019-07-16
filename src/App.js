@@ -1,7 +1,7 @@
 import React from 'react';
 import Routes from './Routes';
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import ErrorScreen from './components/ErrorScreen/ErrorScreen';
 const axios = require('axios')
 
