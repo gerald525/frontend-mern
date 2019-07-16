@@ -1,16 +1,16 @@
-import React from 'react';
-import { shallow, mount, render } from 'enzyme';
-import App from './App';
+// import React from 'react';
+// import { shallow, mount, render } from 'enzyme';
+// import App from './App';
 
-// import { login, logout } from './App';
+// // import { login, logout } from './App';
 
-describe('App', () => {
-    test('renders', () => {
-        const wrapper = shallow(<App />);
+// describe('App', () => {
+//     test('renders', () => {
+//         const wrapper = shallow(<App />);
 
-        expect(wrapper.exists()).toBe(true);
-    });
-});
+//         expect(wrapper.exists()).toBe(true);
+//     });
+// });
 
 
 
