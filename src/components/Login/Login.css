@@ -1,10 +1,19 @@
 .login-background {
-  background-color: #016381;
+  background: 
+  linear-gradient(
+    rgba(1, 99, 129, 0.85), 
+    rgba(1, 99, 129, 0.85)
+  ),
+  /* bottom, image */
+  url(../../images/MI_Img_resized.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
 }
 
-.mobile-form-alignment {
+/* .mobile-form-alignment {
   display: flex;
   flex-direction: column;
   padding-top: 40%;
@@ -12,25 +21,54 @@
   align-items: center;
   color: white;
   font-weight: bold;
+  border: 1px solid black;
+} */
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  color: white;
+  font-weight: bold;
+  /* border: 1px solid black; */
+  align-items: center;
+
 }
+
+.form-label {
+  align-self: flex-start;
+  margin-left: 2em;
+}
+
 
 .login-form-button {
   background-color: #85be58;
   color: white;
   font-weight: bold;
   border: none;
-  width: 100%;
+  width: 80%;
   height: 2em;
   margin-top: 0.5em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.login-logo {
+  margin-top: 2em;
+  height: 8em;
+  width: 8em;
 }
 
 #email {
   border: none;
+  width: 80%;
+  height: 2em;
+  margin-bottom: 1em;
 }
 
 #password {
   border: none;
+  height: 2em;
+  width: 80%;
+  margin-bottom: 1em;
 }
-/* .form-label {
-  text-align: start;
-} */
