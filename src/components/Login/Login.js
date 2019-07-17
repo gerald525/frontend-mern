@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 require('./Login.css')
 
+
 const Login = ({ handleInput, handleLogin }) => {
   if (localStorage.token) {
     console.log('authenticated, redirect to dashboard')
