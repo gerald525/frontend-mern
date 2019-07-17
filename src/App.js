@@ -40,6 +40,7 @@ class App extends React.Component {
     event.preventDefault()
     const { email, password } = this.state
     const response = await this.login(email, password)
+    console.log(response)
     if (response.data.error) {
       this.setState({ error: {
         message: response.data.error.message,

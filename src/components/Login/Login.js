@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
+const logo = require('../../images/MIAcademy_logo-_white.png')
 require('./Login.css')
-
 
 const Login = ({ handleInput, handleLogin }) => {
   if (localStorage.token) {
@@ -10,6 +10,7 @@ const Login = ({ handleInput, handleLogin }) => {
   } else {
     return (
       <div className="login-background">
+        <img className="login-logo" src={logo} alt="MI Academy Logo"/>
         <div className="mobile-form-alignment">
           <form>
             <label className="form-label">Email</label>
