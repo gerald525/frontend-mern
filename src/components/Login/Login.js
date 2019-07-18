@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 const logo = require('../../images/MIAcademy_logo-_white.png')
 require('./Login.css')
 
@@ -23,6 +23,7 @@ const Login = ({ handleInput, handleLogin }) => {
             <br/>
             <input className="login-form-button" type="submit" value="Sign In" onClick={handleLogin} />
           </form>
+          <Link to="/forgotpassword"><p className="forgot-password">Forgot your password?</p></Link>
         </div>
       </div>
     )

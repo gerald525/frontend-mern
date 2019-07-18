@@ -5,6 +5,7 @@ import Course from './components/Course/Course'
 import NoMatch from './components/NoMatch'
 import Dashboard from './components/Dashboard/Dashboard'
 import Help from './components/Help/Help'
+import ForgotPassword from './components/ForgotPassword/ForgotPassword'
 
 class Routes extends React.Component {
   render() {
@@ -26,7 +27,11 @@ class Routes extends React.Component {
         }} />
         <Route path="/course/:name" component={Course} />
         <Route path="/help" component={Help} />
-        <Route component={NoMatch} />
+        <Route path="/forgotpassword" render={() => {
+          return <ForgotPassword
+          />
+        }}/>
+         <Route component={NoMatch} />
       </Switch>
     )
   }
