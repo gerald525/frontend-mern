@@ -11,7 +11,7 @@ const Login = ({ handleInput, handleLogin }) => {
     return (
       <div className="login-background">
         <img className="login-logo" src={logo} alt="MI Academy Logo"/>
-        <div className="mobile-form-alignment">
+        <div className="form-alignment">
           <form>
             <label className="form-label">Email</label>
             <br/>
@@ -23,7 +23,7 @@ const Login = ({ handleInput, handleLogin }) => {
             <br/>
             <input className="login-form-button" type="submit" value="Sign In" onClick={handleLogin} />
           </form>
-          <Link to="/forgotpassword"><p className="forgot-password">Forgot your password?</p></Link>
+          <Link to="/forgotpassword" style={{ textDecoration: 'none' }}><p className="forgot-password">Forgot your password?</p></Link>
         </div>
       </div>
     )

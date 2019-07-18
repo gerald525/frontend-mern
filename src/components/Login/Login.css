@@ -24,7 +24,9 @@
   border: 1px solid black;
 } */
 
-
+.form-alignment {
+  max-width: 600px;
+}
 form {
   display: flex;
   flex-direction: column;
@@ -80,6 +82,21 @@ form {
   margin-top: 1em;
 }
 
-Link {
-  text-decoration: none;
-}
+@media only screen and (min-width : 1200px) {
+  .login-background {
+    background: linear-gradient(
+      rgba(131, 191, 82, 0.85), 
+      rgba(131, 191, 82, 0.85)
+    ), 
+    /* bottom, image */
+    url(../../images/MI_Img_resized.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+  }
+  .login-logo {
+    display: none;
+  }
+ }
