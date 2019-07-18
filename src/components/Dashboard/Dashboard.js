@@ -5,7 +5,9 @@ import { Redirect } from 'react-router-dom'
 
 const Dashboard = ({ programData, loadProgramData }) => {
   // programData =  loadProgramData()
-
+  console.log(programData)
+  
+ 
   if (!localStorage.token) {
     console.log('no token, redirecting to login page')
     return <Redirect to="/login" />

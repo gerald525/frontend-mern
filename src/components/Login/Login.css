@@ -72,3 +72,14 @@ form {
   width: 80%;
   margin-bottom: 1em;
 }
+
+.forgot-password {
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  margin-top: 1em;
+}
+
+Link {
+  text-decoration: none;
+}
