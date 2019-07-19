@@ -107,8 +107,6 @@ form {
   font-size: 0.75em;
 }
 
-
-
 @media only screen and (min-width : 1200px) {
   .login-background {
     background: linear-gradient(

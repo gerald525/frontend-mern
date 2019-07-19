@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Help = () => {
+const Support = () => {
   return (
     <div>
       <h1>Help Page</h1>
@@ -8,4 +8,4 @@ const Help = () => {
   );
 };
 
-export default Help;
+export default Support;

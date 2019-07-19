@@ -1,12 +1,11 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom'
-// const logo = require('../../images/MIAcademy_logo-_white.png')
 require('./Login.css')
 
 const Login = ({ handleInput, handleLogin }) => {
   if (localStorage.token) {
-    console.log('authenticated, redirect to dashboard')
-    return <Redirect to="/dashboard" />
+    console.log('authenticated, redirect to home page')
+    return <Redirect to="/landing-page-dashboard" />
   } else {
     return (
       <div className="login-background">

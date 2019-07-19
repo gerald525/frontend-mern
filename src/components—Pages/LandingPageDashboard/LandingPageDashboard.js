@@ -1,9 +1,28 @@
 import React from 'react';
-import Loading from '../Loading/Loading'
+// import Loading from '../../components/Loading/Loading'
 import { Redirect } from 'react-router-dom'
 const axios = require('axios')
+require('./LandingPageDashboard.css')
 
-class Dashboard extends React.Component  {
+// require('./LandingPageMenu.css')
+
+// const LandingPageMenu = () => {
+//   return (
+//     //note: I changed stuff below, may need to be changed elsewhere
+//     <div className="mobile-landingPage-container"> //changed from mobile-menu-container
+//     <div className="mobile-landingPage-contents">//changed from mobile-menu-contents
+//     <div className="mobile-welcome-box"><p>G'day Mate</p></div>
+//     <div className="mobile-program-link"><p>Program</p></div>//changed from project
+//     <div className="mobile-profile-link"><p>Profile</p></div>//changed from account-details-link
+//     <div className="mobile-support-link"><p>Support</p></div>
+//     </div>
+//     </div>
+//     )
+//   }
+
+//   export default LandingPageMenu;
+
+class LandingPageDashboard extends React.Component  {
   constructor(){
     super()
     this.state = {
@@ -12,7 +31,7 @@ class Dashboard extends React.Component  {
       currentUser: null,
     }
   }
-
+  
   componentDidMount = async () => {
     console.log('fetch Program function');
     // const url = process.env.REACT_APP_API_URL + '/user/program'
@@ -37,25 +56,26 @@ class Dashboard extends React.Component  {
       this.setState({ error: {
         message: 'Could not contact the server',
         status: 500
-        }
-      })
-    }
+      }
+    })
   }
+}
 
-  // programList = () => {
-  //   return (
-  //     <div>
-  //         {this.state.programData.map((item, index) => (
-  //         <div >
-  //           {this.state.programData.name}: {this.state.programData.description} by {this.state.programData.endDate} }
-  //         </div>
-  //       ))}
-  //       </div>
-  //   )
-  // }
 
-  render() {
-    console.log(this.state)
+// programList = () => {
+//   return (
+//     <div>
+//         {this.state.programData.map((item, index) => (
+//         <div >
+//           {this.state.programData.name}: {this.state.programData.description} by {this.state.programData.endDate} }
+//         </div>
+//       ))}
+//       </div>
+//   )
+// }
+
+render() {
+  console.log(this.state)
   // programData =  loadProgramData()
   // console.log(programData)
   // console.log(props)
@@ -66,26 +86,25 @@ class Dashboard extends React.Component  {
   // let token = localStorage.token
   // const authentication = await axios.get(`http://localhost:5000/user/program/${id}`, {headers: { token: token }})
   // console.log(authentication)
- 
+  
   if (!localStorage.token) {
     console.log('no token, redirecting to login page')
     return <Redirect to="/login" />
   } else if (!this.state.programData) {
     console.log('No course Data. Call loadProgramData function')
   }
-
+  
   return (
-    <div>
-      {this.state.programData ? 
-        
-        <div >
-            {this.state.programData.name}: {this.state.programData.description} by {this.state.programData.endDate} }
+        <div className="mobile-landingPage-container"> 
+          <div className="mobile-landingPage-contents">
+            <div className="mobile-welcome-box"><p>G'day Mate</p></div>
+            <div className="mobile-program-link"><p>Program </p></div>
+            <div className="mobile-profile-link"><p>Profile</p></div>
+            <div className="mobile-support-link"><p>Support</p></div>
           </div>
-
-        : <Loading />}
-    </div>
-  );
+        </div>
+      )
+    }
   }
-}
 
-export default Dashboard;
+  export default LandingPageDashboard; 

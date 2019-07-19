@@ -1,17 +1,14 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom'
-import Login from './components/Login/Login'
-import Course from './components/Course/Course'
+import Login from './components—Pages/Login/Login'
 import NoMatch from './components/NoMatch'
-import Dashboard from './components/Dashboard/Dashboard'
-import Help from './components/Help/Help'
-import ForgotPassword from './components/ForgotPassword/ForgotPassword'
-import Menu from './components/Menu/Menu'
-// import DashboardData from './components/Dashboard/DashboardData'
+import LandingPageDashboard from './components—Pages/LandingPageDashboard/LandingPageDashboard'
+import Support from './components—Pages/Support/Support'
+import ForgotPassword from './components—Pages/ForgotPassword/ForgotPassword'
 
 class Routes extends React.Component {
   render() {
-    const { courseData, handleLogin, handleInput, loadProgramData, currentUser } = this.props
+    const { handleLogin, handleInput, loadProgramData, currentUser } = this.props
     const token = localStorage.token
     return (
       <Switch>
@@ -21,22 +18,21 @@ class Routes extends React.Component {
             handleInput={handleInput} 
           />
         }} />
-        <Route path="/dashboard" /*component={DashboardData}*/ render={() => {
-          console.log('dashboard route')
-          return   <Dashboard 
-                    courseData={courseData} 
+        <Route path="/landing-page-dashboard" /*component={DashboardData}*/ render={() => {
+          console.log('landing-page-dashboard route')
+          return   <LandingPageDashboard 
                     loadProgramData={loadProgramData}
                     handleLogin={this.props}
                     currentUser={currentUser} 
                   />
         }} />
-        <Route path="/course/:name" component={Course} />
-        <Route path="/help" component={Help} />
+        <Route path="/program/:name" /*component={Program}*/ />
+        <Route path="/support" component={Support} />
         <Route path="/forgotpassword" render={() => {
           return <ForgotPassword/>
         }}/>
-        { token ? <Route path="/menu" render={() => {
-          return <Menu/>
+        { token ? <Route path="/LandingPageDashboard" render={() => {
+          return <LandingPageDashboard/>
         }}/> : <Redirect to="/login" /> }
          <Route component={NoMatch} />
       </Switch>

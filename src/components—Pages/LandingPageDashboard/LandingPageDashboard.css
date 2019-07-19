@@ -1,0 +1,118 @@
+.mobile-landingPage-container { 
+    /* changed from menu */
+    height: 100vh;
+    width: 100vw;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+   
+   .mobile-landingPage-contents { 
+    /* changed from menu */
+     height: 95%;
+     width: 90%;
+     /* border: 1px solid black; */
+     display: flex;
+     flex-direction: column;
+   }
+   
+   .mobile-welcome-box {
+     width: 100%;
+     height: 9em;
+     background: 
+     linear-gradient(
+       rgba(255, 90, 78, 0.9), 
+       rgba(255, 90, 78, 0.9)
+     ),
+     /* bottom, image */
+     url(../../images/MI_Img_resized.jpg);
+     background-position: center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     display: flex;
+     align-items: center;
+   }
+   .mobile-welcome-box p {
+     font-size: 2em;
+     font-weight: 700;
+     color: #ffff;
+     margin-left: 0.5em;
+   }
+   
+   .mobile-program-link { 
+    /* changed from project */
+     width: 100%;
+     height: 7.25em;
+     background: 
+     linear-gradient(
+       rgba(131, 191, 82, 0.95), 
+       rgba(131, 191, 82, 0.95)
+     ),
+     /* bottom, image */
+     url(../../images/MI_Img_resized.jpg);
+     background-position: center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-top: 1em;
+   }
+   
+   .mobile-program-link p {
+    /* changed from project */
+     font-size: 2.5em;
+     font-weight: 400;
+     color: #ffff
+   }
+   
+   .mobile-profile-link {
+     width: 100%;
+     height: 7.25em;
+     background: 
+     linear-gradient(
+       rgba(147, 38, 105, 0.95), 
+       rgba(147, 38, 105, 0.95)
+     ),
+     /* bottom, image */
+     url(../../images/MI_Img_resized.jpg);
+     background-position: center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-top: 1em;
+   }
+   
+   .mobile-profile-link p { 
+     font-size: 2.5em;
+     font-weight: 400;
+     color: #ffff
+   }
+   
+   .mobile-support-link {
+     width: 100%;
+     height: 7.25em;
+     background: 
+     linear-gradient(
+       rgba(71, 186, 192, 0.95), 
+       rgba(71, 186, 192, 0.95)
+     ),
+     /* bottom, image */
+     url(../../images/MI_Img_resized.jpg);
+     background-position: center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-top: 1em;
+   }
+   
+   .mobile-support-link p {
+     font-size: 2.5em;
+     font-weight: 400;
+     color: #ffff
+   }
