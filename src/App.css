@@ -57,3 +57,9 @@
   --white: #ffffff;
 }
 
+/* Desktops and laptops */
+/* @media only screen and (min-width : 1224px) {
+ .login-background {
+   display: none;
+ }
+} */
