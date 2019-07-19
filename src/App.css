@@ -1,3 +1,13 @@
+@import './index.css';
+@import './components/Dashboard/Dashboard.css';
+@import './components/ErrorScreen/ErrorScreen.css';
+@import './components/Help/Help.css';
+@import './components/Loading/Loading.css';
+@import './components/Login/Login.css';
+@import './components/Logo/Logo.css';
+@import './components/Navbar/Navbar.css';
+@import './components/Profile/Profile.css';
+@import './components/Search/Search.css';
 
 .App {
   text-align: center;
@@ -36,9 +46,22 @@
   }
 }
 
+:root {
+  /*  MI Academy brand colours  */
+  --blue: #016381;
+  --lightblue: #47bac0;
+  --orange: #e15a4e;
+  --purple: #932669;
+  --green: #85be58;
+  --grey: #3f3f3f;
+  --white: #ffffff;
+}
+
+=======
 /* Desktops and laptops */
 /* @media only screen and (min-width : 1224px) {
  .login-background {
    display: none;
  }
 } */
+
