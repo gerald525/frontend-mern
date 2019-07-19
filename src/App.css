@@ -1,12 +1,12 @@
 @import './index.css';
-@import './components/Dashboard/Dashboard.css';
-@import './components/ErrorScreen/ErrorScreen.css';
-@import './components/Help/Help.css';
+@import './components—Pages/LandingPageDashboard/LandingPageDashboard.css';
+@import './components—Pages/Error/Error.css';
+@import './components—Pages/Support/Support.css';
 @import './components/Loading/Loading.css';
-@import './components/Login/Login.css';
+@import './components—Pages/Login/Login.css';
 @import './components/Logo/Logo.css';
 @import './components/Navbar/Navbar.css';
-@import './components/Profile/Profile.css';
+@import './components—Pages/Profile/Profile.css';
 @import './components/Search/Search.css';
 
 .App {
@@ -57,7 +57,6 @@
   --white: #ffffff;
 }
 
-=======
 /* Desktops and laptops */
 /* @media only screen and (min-width : 1224px) {
  .login-background {

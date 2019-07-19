@@ -2,7 +2,7 @@ import React from 'react';
 import Routes from './Routes';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import ErrorScreen from './components/ErrorScreen/ErrorScreen';
+import Error from './components—Pages/Error/Error'
 const axios = require('axios')
 
 
@@ -120,7 +120,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {token ? <Navbar logout={this.logout} /> : null }
-        {error && <ErrorScreen status={error.status} message={error.message}/>}
+        {error && <Error status={error.status} message={error.message}/>}
         <Routes 
           handleLogin={this.handleLogin} 
           handleInput={this.handleInput}
