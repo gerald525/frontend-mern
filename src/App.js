@@ -49,6 +49,7 @@ class App extends React.Component {
       })
     } else {
       localStorage.setItem('token', response.data.token)
+      console.log(response.data.user)
       this.setState({
         currentUser: response.data.user, // {currentUser: { foundUser, token }}
       })
@@ -62,12 +63,14 @@ class App extends React.Component {
     })
   }
 
+
   fetchProgram = async () => {
     console.log('fetch Program function');
     const url = process.env.REACT_APP_API_URL + '/user/program'
     const options = {
       token: localStorage.token
     }
+    // console.log(token)
     try {
       return await axios.get(url, options)
     } catch(err) {
@@ -80,48 +83,50 @@ class App extends React.Component {
     }
   }
 
-  loadProgramData = async () => {
-    console.log('Load Program Data function');
-    try {
-      const response = await this.fetchProgram()
-      console.log(response);
-      if (response.data.error) {
-        this.setState({ 
-          error: {
-            message: response.data.error.message,
-            status: response.data.error.status
-          },
-          loading: false
-        })
-      } else {
-        console.log('updating state with Program Data');
-        this.setState({
-          programData: response.data.programData
-        })
-        console.log(this.state.programData);
-      }
-    } catch(err) {
-      this.setState({ 
-        error: {
-          message: err.message,
-          status: err.status
-        },
-        loading: false
-      })
-    }
-  }
+  // loadProgramData = async () => {
+  //   console.log('Load Program Data function');
+  //   try {
+  //     const response = await this.fetchProgram()
+  //     console.log(response);
+  //     if (response.data.error) {
+  //       this.setState({ 
+  //         error: {
+  //           message: response.data.error.message,
+  //           status: response.data.error.status
+  //         },
+  //         loading: false
+  //       })
+  //     } else {
+  //       console.log('updating state with Program Data');
+  //       this.setState({
+  //         programData: response.data.programData
+  //       })
+  //       console.log(this.state.programData);
+  //     }
+  //   } catch(err) {
+  //     this.setState({ 
+  //       error: {
+  //         message: err.message,
+  //         status: err.status
+  //       },
+  //       loading: false
+  //     })
+  //   }
+  // }
 
   render() {
-    const { programData, error } = this.state
+    const { programData, error, currentUser } = this.state
+    const token = localStorage.token
     return (
       <div className="App">
-        <Navbar logout={this.logout} />
+        {token ? <Navbar logout={this.logout} /> : null }
         {error && <ErrorScreen status={error.status} message={error.message}/>}
         <Routes 
           handleLogin={this.handleLogin} 
           handleInput={this.handleInput}
           programData={programData}
           loadProgramData={this.loadProgramData}
+          currentUser={currentUser}
         />
       </div>
     );
