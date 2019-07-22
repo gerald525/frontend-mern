@@ -1,0 +1,17 @@
+.mobile-project-dashboard-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white)
+}
+
+.mobile-project-dashboard-contents {
+  height: 95%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid black;
+}

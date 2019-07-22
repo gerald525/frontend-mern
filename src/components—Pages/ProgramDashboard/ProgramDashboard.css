@@ -1,0 +1,158 @@
+.mobile-programDashboard-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.mobile-programDashboard-contents {
+  height: 95%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black */
+}
+
+.mobile-programDashboard-project-one {
+  width: 100%;
+  height: 9em;
+  background: 
+  linear-gradient(
+       rgba(71, 186, 192, 0.95), 
+       rgba(71, 186, 192, 0.95)
+    ),
+   /* bottom, image */
+    url(../../images/MI_Img_resized.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: var(--white)
+}
+
+.mobile-programDashboard-project-one p {
+  margin: 0.25em 0 0.125em 0.5em;
+  font-weight: 300;
+  font-size: 0.625em;
+}
+
+.mobile-programDashboard-project-one h2 {
+  margin: 0.125em 0 0.125em 0.25em;
+  font-weight: 700;
+  font-size: 1.125em;
+}
+
+.mobile-programDashboard-project-two {
+  width: 100%;
+  height: 9em;
+  background: 
+  linear-gradient(
+       rgba(255, 90, 78, 0.95), 
+       rgba(255, 90, 78, 0.95)
+    ),
+   /* bottom, image */
+    url(../../images/MI_Img_resized.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: var(--white)
+}
+
+.mobile-programDashboard-project-two p {
+  margin: 0.25em 0 0.125em 0.5em;
+  font-weight: 300;
+  font-size: 0.625em;
+}
+
+.mobile-programDashboard-project-two h2 {
+  margin: 0.125em 0 0.125em 0.25em;
+  font-weight: 700;
+  font-size: 1.125em;
+}
+
+.mobile-programDashboard-project-three {
+  width: 100%;
+  height: 9em;
+  background: 
+  linear-gradient(
+       rgba(147, 38, 105, 0.95), 
+       rgba(147, 38, 105, 0.95)
+    ),
+   /* bottom, image */
+    url(../../images/MI_Img_resized.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: var(--white)
+}
+
+.mobile-programDashboard-project-three p {
+  margin: 0.25em 0 0.125em 0.5em;
+  font-weight: 300;
+  font-size: 0.625em;
+}
+
+.mobile-programDashboard-project-three h2 {
+  margin: 0.125em 0 0.125em 0.25em;
+  font-weight: 700;
+  font-size: 1.125em;
+}
+
+.mobile-programDashboard-project-four {
+  width: 100%;
+  height: 9em;
+  background: 
+  linear-gradient(
+       rgba(131, 191, 82, 0.95), 
+       rgba(131, 191, 82, 0.95)
+    ),
+   /* bottom, image */
+    url(../../images/MI_Img_resized.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: var(--white)
+}
+
+.mobile-programDashboard-project-four p {
+  margin: 0.25em 0 0.125em 0.5em;
+  font-weight: 300;
+  font-size: 0.625em;
+}
+
+.mobile-programDashboard-project-four h2 {
+  margin: 0.125em 0 0.125em 0.25em;
+  font-weight: 700;
+  font-size: 1.125em;
+}
+
+.mobile-programDashboard-status-box {
+  width: 4.75em;
+  height: 1.75em;
+  background: var(--white);
+  margin: 0.5em 0 0 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.mobile-programDashboard-status-box p {
+  color: var(--grey);
+  font-weight: 700;
+  font-size: 0.5em;
+}

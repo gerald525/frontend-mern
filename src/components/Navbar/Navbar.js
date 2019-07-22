@@ -10,7 +10,7 @@ const Navbar = ({ logout }) => {
   return (
     <div className="mobile-navbar">
       <div className="mobile-contents">
-        <Link to="/menu"><div className="mobile-link-logo"></div></Link>
+        <Link to="/landing-page-dashboard"><div className="mobile-link-logo"></div></Link>
         {/* <Logo /> */}
         {/* <Search /> */}
         <div className="logout-box">

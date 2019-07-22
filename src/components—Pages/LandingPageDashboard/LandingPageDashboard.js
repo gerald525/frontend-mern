@@ -1,52 +1,50 @@
 import React from 'react';
 // import Loading from '../../components/Loading/Loading'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom';
 const axios = require('axios')
 require('./LandingPageDashboard.css')
 
-// require('./LandingPageMenu.css')
-
-// const LandingPageMenu = () => {
-//   return (
-//     //note: I changed stuff below, may need to be changed elsewhere
-//     <div className="mobile-landingPage-container"> //changed from mobile-menu-container
-//     <div className="mobile-landingPage-contents">//changed from mobile-menu-contents
-//     <div className="mobile-welcome-box"><p>G'day Mate</p></div>
-//     <div className="mobile-program-link"><p>Program</p></div>//changed from project
-//     <div className="mobile-profile-link"><p>Profile</p></div>//changed from account-details-link
-//     <div className="mobile-support-link"><p>Support</p></div>
-//     </div>
-//     </div>
-//     )
-//   }
-
-//   export default LandingPageMenu;
 
 class LandingPageDashboard extends React.Component  {
   constructor(){
     super()
     this.state = {
-      programData: null,
+      dataProgram: null,
       authentication: false,
       currentUser: null,
     }
   }
-  
+  // state = {
+  //   dataProgram: null,
+  //   authentication: false,
+  //   currentUser: null,
+  // }
+
   componentDidMount = async () => {
-    console.log('fetch Program function');
+    // checking if data is available from props, placing currentUser = {currentUser} in LandingPd routes
+    // console.log(this.props)
     // const url = process.env.REACT_APP_API_URL + '/user/program'
-    // let programData = this.props.programData
+
+    // getting program id from token user
+    console.log(localStorage.user)
+
+    // getting program id from currentUser
+    // let id = []
+    // if (this.props.currentUser = null)
     let currentUser = this.props.currentUser
     console.log(currentUser.programs[0])
-    let id = currentUser.programs[0]
+   
+    const id = currentUser.programs[0]
+    
+
+  
+    // need token for authorisation
     let token = localStorage.token
-    // const options = {
-    //   token: localStorage.token
-    // }
+
     try {
       const response = await axios.get(`http://localhost:5000/user/program/${id}`, {headers: { token: token }})
       this.setState({
-        programData: response.data,
+        dataProgram: response.data,
         authentication: true,
         currentUser: this.props.currentUser
       })
@@ -76,35 +74,32 @@ class LandingPageDashboard extends React.Component  {
 
 render() {
   console.log(this.state)
-  // programData =  loadProgramData()
-  // console.log(programData)
-  // console.log(props)
-  // let programData = props.programData
-  // let currentUser = props.currentUser
-  // console.log(currentUser.programs[0])
-  // let id = currentUser.programs[0]
-  // let token = localStorage.token
-  // const authentication = await axios.get(`http://localhost:5000/user/program/${id}`, {headers: { token: token }})
-  // console.log(authentication)
-  
-  if (!localStorage.token) {
-    console.log('no token, redirecting to login page')
-    return <Redirect to="/login" />
-  } else if (!this.state.programData) {
-    console.log('No course Data. Call loadProgramData function')
-  }
-  
-  return (
-        <div className="mobile-landingPage-container"> 
-          <div className="mobile-landingPage-contents">
-            <div className="mobile-welcome-box"><p>G'day Mate</p></div>
-            <div className="mobile-program-link"><p>Program </p></div>
-            <div className="mobile-profile-link"><p>Profile</p></div>
-            <div className="mobile-support-link"><p>Support</p></div>
-          </div>
+  const { dataProgram } = this.state
+  console.log(dataProgram)
+ 
+ if (!localStorage.token) {
+   return <Redirect to="/login" />
+ } else {
+    return (
+          
+      <div className="mobile-landingPage-container"> 
+        <div className="mobile-landingPage-contents">
+          <div className="mobile-welcome-box"><p>G'day Mate</p></div>
+          <Link to="/program-dashboard">
+            <div className="mobile-program-link">
+            <p>Program</p>
+             {this.state.dataProgram ? <small>{this.state.dataProgram.name}</small> : <small>Loading program name...</small>}
+            </div>
+          </Link>
+          <Link to="/profile"><div className="mobile-profile-link"><p>Profile</p></div></Link>
+          <div className="mobile-support-link"><p>Support</p></div>
         </div>
+      </div>
+    
       )
     }
+  
   }
+}
 
   export default LandingPageDashboard; 
