@@ -57,6 +57,11 @@
   --white: #ffffff;
 }
 
+/* Remove the react LINK underlines */
+a {
+  text-decoration: none;
+}
+
 /* Desktops and laptops */
 /* @media only screen and (min-width : 1224px) {
  .login-background {
