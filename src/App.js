@@ -10,10 +10,16 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      programData: null
+      currentUser: null,
     }
   }
-  
+  // state = {
+  //   currentUser: null,
+  // }
+  componentDidMount = async () => {
+    console.log(localStorage.token)
+  }
+
   login = async (email, password) => {
     const credentials = { email: email, password: password }
     try {
@@ -49,12 +55,37 @@ class App extends React.Component {
       })
     } else {
       localStorage.setItem('token', response.data.token)
+      localStorage.setItem('user', response.data.user.programs[0])
       console.log(response.data.user)
+      console.log(localStorage.user)
+      // get user programs ID
+      const userProgramId = response.data.user.programs[0]
+      console.log(userProgramId)
       this.setState({
         currentUser: response.data.user, // {currentUser: { foundUser, token }}
       })
     }
   }
+
+  componentDidMount = async () => {
+    console.log('component did mount local storage')
+    console.log(localStorage.token)
+    token = localStorage.token
+      if (this.state.currentUser == null) {
+      const response = await axios.post(`http://localhost:5000/user/program/`, {headers: { token: token }})
+      this.setState({
+        currentUser: response.data
+      })}
+       else if (response.data.error) {
+        this.setState({ error: {
+          message: response.data.error.message,
+          status: response.data.error.status
+          }
+        }
+        )
+      }
+    }
+  
 
   handleInput = (event) => {
     event.preventDefault();
@@ -63,25 +94,25 @@ class App extends React.Component {
     })
   }
 
-
-  fetchProgram = async () => {
-    console.log('fetch Program function');
-    const url = process.env.REACT_APP_API_URL + '/user/program'
-    const options = {
-      token: localStorage.token
-    }
-    // console.log(token)
-    try {
-      return await axios.get(url, options)
-    } catch(err) {
-      console.log(err.message);
-      this.setState({ error: {
-        message: 'Could not contact the server',
-        status: 500
-        }
-      })
-    }
-  }
+  // fetchProgram = async () => {
+  //   // need the user project id
+  //   console.log('fetch Program function');
+  //   const url = process.env.REACT_APP_API_URL + `/user/program/`
+  //   const options = {
+  //     token: localStorage.token
+  //   }
+  //   // console.log(token)
+  //   try {
+  //     return await axios.get(url, options)
+  //   } catch(err) {
+  //     console.log(err.message);
+  //     this.setState({ error: {
+  //       message: 'Could not contact the server',
+  //       status: 500
+  //       }
+  //     })
+  //   }
+  // }
 
   // loadProgramData = async () => {
   //   console.log('Load Program Data function');
@@ -116,10 +147,11 @@ class App extends React.Component {
 
   render() {
     const { programData, error, currentUser } = this.state
-    const token = localStorage.token
+
+    // const token = localStorage.token
     return (
       <div className="App">
-        {token ? <Navbar logout={this.logout} /> : null }
+        {/* {token ? <Navbar logout={this.logout} /> : null } */}
         {error && <Error status={error.status} message={error.message}/>}
         <Routes 
           handleLogin={this.handleLogin} 
@@ -128,6 +160,8 @@ class App extends React.Component {
           programData={programData}
           loadProgramData={this.loadProgramData}
           currentUser={currentUser}
+          logout={this.logout}
+          // error={error}  
         />
       </div>
     );
