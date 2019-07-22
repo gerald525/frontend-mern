@@ -155,6 +155,7 @@ class App extends React.Component {
         {error && <Error status={error.status} message={error.message}/>}
         <Routes 
           handleLogin={this.handleLogin} 
+          handleEdit={this.handleEdit}
           handleInput={this.handleInput}
           programData={programData}
           loadProgramData={this.loadProgramData}
