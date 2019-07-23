@@ -30,8 +30,10 @@ class Routes extends React.Component {
             return   <LandingPageDashboard currentUser={currentUser} />
           }} /> 
           <Route path="/program/:name" />
-          <Route path="/profile" render={() => {
-            return <Profile />
+          <Route path="/profile" render={(props) => {
+            return <Profile
+              {...props}
+            />
            }}/>
           <Route path="/profile-edit" render={() => {
             return <ProfileEdit />

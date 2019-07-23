@@ -42,8 +42,9 @@ class LandingPageDashboard extends React.Component  {
   }
 
   render() {
+    const { currentUserEmail, programData } = this.state
     const program = this.state.currentUser ? this.state.currentUser.programs[0] : null
-
+    const currentUser = this.state.currentUser ? this.state.currentUser : null
     if(!localStorage.token) {
       return <Redirect to="/login" />
     } else {
@@ -55,15 +56,18 @@ class LandingPageDashboard extends React.Component  {
             <div className="mobile-landingPage-contents">
               <div className="mobile-welcome-box">
                 <p>Welcome</p>
-                {this.state.currentUserEmail ? <small className="mobile-landingPage-data"> {this.state.currentUserEmail} </small> : <small>Loading user detail...</small>}
+                {currentUserEmail ? <small className="mobile-landingPage-data"> {currentUserEmail} </small> : <small>Loading user detail...</small>}
               </div>
               <Link to={`/program-dashboard/${program}`} >
                 <div className="mobile-program-link">
                 <p>Program</p>
-                {this.state.programData ? <small className="mobile-landingPage-data">[ {this.state.programData.name} ]</small> : <small>Loading program name...</small>}
+                {programData ? <small className="mobile-landingPage-data">[ {programData.name} ]</small> : <small>Loading program name...</small>}
                 </div>
               </Link>
-              <Link to="/profile"><div className="mobile-profile-link"><p>Profile</p></div></Link>
+              <Link to={{
+                pathname: "/profile",
+                state: { currentUser }
+              }}><div className="mobile-profile-link"><p>Profile</p></div></Link>
               <div className="mobile-support-link"><p>Support</p></div>
             </div>
           </div>
