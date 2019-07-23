@@ -15,9 +15,7 @@ class Routes extends React.Component {
   render() {
     const { handleLogin, handleInput, currentUser, logout } = this.props
     const token = localStorage.token
-    console.log(currentUser)
     return (
-
       <BrowserRouter>
         {token ? <Navbar logout={logout} /> : null }
         <Switch>
@@ -29,13 +27,9 @@ class Routes extends React.Component {
           }} />
           <Route exact path="/landing-page-dashboard" render={() => {
             console.log('landing-page-dashboard route')
-            console.log(currentUser)
-            return   <LandingPageDashboard
-                      // handleLogin={handleLogin}  
-                      currentUser={currentUser} 
-                    />
+            return   <LandingPageDashboard currentUser={currentUser} />
           }} /> 
-          <Route path="/program/:name" /*component={Program}*/ />
+          <Route path="/program/:name" />
           <Route path="/profile" render={() => {
             return <Profile />
            }}/>

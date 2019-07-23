@@ -1,9 +1,7 @@
 import React from 'react';
 import Routes from './Routes';
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
 import Error from './components—Pages/Error/Error'
-import { throwStatement } from '@babel/types';
 const axios = require('axios')
 
 
@@ -14,12 +12,6 @@ class App extends React.Component {
       currentUser: null,
     }
   }
-  // state = {
-  //   currentUser: null,
-  // }
-  // componentDidMount = async () => {
-
-  // }
 
   login = async (email, password) => {
     const credentials = { email: email, password: password }
@@ -47,7 +39,7 @@ class App extends React.Component {
     event.preventDefault()
     const { email, password } = this.state
     const response = await this.login(email, password)
-    console.log(response)
+    console.log(response);
     if (response.data.error) {
       this.setState({ error: {
         message: response.data.error.message,
@@ -56,15 +48,10 @@ class App extends React.Component {
       })
     } else {
       localStorage.setItem('token', response.data.token)
-      localStorage.setItem('user', response.data.user.programs[0])
-      console.log(response.data.user)
-      // console.log(localStorage.user)
-      // get user programs ID
-      const userProgramId = response.data.user.programs[0]
-      console.log(userProgramId)
       this.setState({
-        currentUser: response.data.user, // {currentUser: { foundUser, token }}
+        currentUser: response.data.user
       })
+      console.log(this.state);
     }
   }
 
@@ -76,56 +63,6 @@ class App extends React.Component {
     })
   }
 
-  // fetchProgram = async () => {
-  //   // need the user project id
-  //   console.log('fetch Program function');
-  //   const url = process.env.REACT_APP_API_URL + `/user/program/`
-  //   const options = {
-  //     token: localStorage.token
-  //   }
-  //   // console.log(token)
-  //   try {
-  //     return await axios.get(url, options)
-  //   } catch(err) {
-  //     console.log(err.message);
-  //     this.setState({ error: {
-  //       message: 'Could not contact the server',
-  //       status: 500
-  //       }
-  //     })
-  //   }
-  // }
-
-  // loadProgramData = async () => {
-  //   console.log('Load Program Data function');
-  //   try {
-  //     const response = await this.fetchProgram()
-  //     console.log(response);
-  //     if (response.data.error) {
-  //       this.setState({ 
-  //         error: {
-  //           message: response.data.error.message,
-  //           status: response.data.error.status
-  //         },
-  //         loading: false
-  //       })
-  //     } else {
-  //       console.log('updating state with Program Data');
-  //       this.setState({
-  //         programData: response.data.programData
-  //       })
-  //       console.log(this.state.programData);
-  //     }
-  //   } catch(err) {
-  //     this.setState({ 
-  //       error: {
-  //         message: err.message,
-  //         status: err.status
-  //       },
-  //       loading: false
-  //     })
-  //   }
-  // }
 
   render() {
     const { programData, error, currentUser } = this.state
