@@ -6,9 +6,29 @@ require('./Profile.css')
 
 class Profile extends React.Component {
 
+  state = {
+    profileData: null
+  }
+
+  componentDidMount = async () => {
+    const token = localStorage.token
+    try {
+      const response = await axios.post(process.env.REACT_APP_API_URL + '/user/fetch-user', {}, {headers: { token: token }})
+      this.setState({
+        profileData: response.data.user.email
+      })
+    } catch(err) {
+      console.log(err.message);
+      this.setState({ error: {
+        message: 'Could not contact the server for profile.js',
+        status: 500
+      }
+    })
+    }
+  }
+
   render() {
-    // test if localStorage.token works
-    console.log(localStorage.token)
+    console.log(this.state.profileData)
 
     if (!localStorage.token) {
       return <Redirect to="/login" />
@@ -19,11 +39,11 @@ class Profile extends React.Component {
             <h1>Profile</h1>
             <p>Email</p>
             <div className="profile-data">
-              <small>[ input data from backend ]</small>
+            {this.state.profileData ? <small>{this.state.profileData.email}</small> : null }
             </div>
             <p>Password</p>
             <div className="profile-data">
-              <small>[ input data from backend ]</small>
+            {this.state.profileData ? <small className="profile-password">{this.state.profileData.password}</small> : null }
             </div>
             <Link to="/profile-edit"><button className="profile-edit-button">Edit</button></Link>
           </div>

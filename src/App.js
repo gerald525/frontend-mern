@@ -3,6 +3,7 @@ import Routes from './Routes';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Error from './components—Pages/Error/Error'
+import { throwStatement } from '@babel/types';
 const axios = require('axios')
 
 
@@ -16,9 +17,9 @@ class App extends React.Component {
   // state = {
   //   currentUser: null,
   // }
-  componentDidMount = async () => {
-    console.log(localStorage.token)
-  }
+  // componentDidMount = async () => {
+
+  // }
 
   login = async (email, password) => {
     const credentials = { email: email, password: password }
@@ -57,7 +58,7 @@ class App extends React.Component {
       localStorage.setItem('token', response.data.token)
       localStorage.setItem('user', response.data.user.programs[0])
       console.log(response.data.user)
-      console.log(localStorage.user)
+      // console.log(localStorage.user)
       // get user programs ID
       const userProgramId = response.data.user.programs[0]
       console.log(userProgramId)
@@ -67,25 +68,6 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount = async () => {
-    console.log('component did mount local storage')
-    console.log(localStorage.token)
-    token = localStorage.token
-      if (this.state.currentUser == null) {
-      const response = await axios.post(`http://localhost:5000/user/program/`, {headers: { token: token }})
-      this.setState({
-        currentUser: response.data
-      })}
-       else if (response.data.error) {
-        this.setState({ error: {
-          message: response.data.error.message,
-          status: response.data.error.status
-          }
-        }
-        )
-      }
-    }
-  
 
   handleInput = (event) => {
     event.preventDefault();
@@ -148,23 +130,22 @@ class App extends React.Component {
   render() {
     const { programData, error, currentUser } = this.state
 
+      return (
+        <div className="App">
+          {/* {token ? <Navbar logout={this.logout} /> : null } */}
+          {error && <Error status={error.status} message={error.message}/>}
+          <Routes 
+            handleLogin={this.handleLogin} 
+            handleInput={this.handleInput}
+            programData={programData}
+            loadProgramData={this.loadProgramData}
+            currentUser={currentUser}
+            logout={this.logout}
+            // error={error}  
+          />
+        </div>
+      );
     // const token = localStorage.token
-    return (
-      <div className="App">
-        {/* {token ? <Navbar logout={this.logout} /> : null } */}
-        {error && <Error status={error.status} message={error.message}/>}
-        <Routes 
-          handleLogin={this.handleLogin} 
-          handleEdit={this.handleEdit}
-          handleInput={this.handleInput}
-          programData={programData}
-          loadProgramData={this.loadProgramData}
-          currentUser={currentUser}
-          logout={this.logout}
-          // error={error}  
-        />
-      </div>
-    );
   }
 }
 

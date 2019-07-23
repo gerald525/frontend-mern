@@ -35,7 +35,11 @@
 .profile-data {
   height: 2em;
   border: 1px dotted var(--grey);
-  width: 99.5% 
+  width: 99.5%; 
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile-edit-button {
@@ -47,4 +51,17 @@
   font-size: 1.5em;
   font-weight: 700;
   width: 99.5%;
+}
+
+.profile-password {
+  font-size: 0.6em;
+}
+
+
+/* mobile responsive media queries */
+/* 350px wide or Less */
+@media only screen and (max-width: 350px) {
+  .profile-password {
+    font-size: 0.5em
+  }
 }
