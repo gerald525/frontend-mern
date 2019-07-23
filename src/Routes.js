@@ -46,9 +46,10 @@ class Routes extends React.Component {
           <Route path="/forgotpassword" render={() => {
             return <ForgotPassword/>
           }}/>
-          { token ? <Route path="/program-dashboard" render={() => {
+          { token ? <Route path="/program-dashboard/:program" render={(props) => {
             return <ProgramDashboard
-                    currentUser={currentUser} 
+                      {...props}
+                    // currentUser={currentUser} 
                     />
           }}/> : <Redirect to="/login" /> }
 

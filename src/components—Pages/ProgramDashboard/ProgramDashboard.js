@@ -24,11 +24,17 @@ class ProgramDashboard extends React.Component {
   // }
 
   componentDidMount = async () => {
+   
+    // console.log(this.props.program)
+  
     // get the program id first
-    const program = this.props.currentUser
-    console.log(program)
-    const id = program.programs[0]
-    console.log(`program id: ${id}`)
+    // const program = this.props.currentUser
+    // console.log(program)
+    // const id = this.props.program
+    // console.log(`program id: ${id}`)
+     // getting the id from its URL
+     const id = this.props.match.params.program
+     console.log(id)
     // need token id for authorisation
     const token = localStorage.token
 
@@ -48,7 +54,7 @@ class ProgramDashboard extends React.Component {
 
     // fetching all projects
     try {
-      const response = await axios.get(`http://localhost:5000/user/program/${id}/projects`, {headers: { token: token }})
+      const response = await axios.get(process.env.REACT_APP_API_URL + `/user/program/${id}/projects`, {headers: { token: token }})
       // getting correct data
       // console.log(response)
       // console.log(response.data.projects)
@@ -108,43 +114,49 @@ class ProgramDashboard extends React.Component {
               </div> }
 
             {this.state.projectTwo ? 
-              <div className="mobile-programDashboard-project-two">
-                <p>Start Date: {this.state.projectTwo.startDate}</p>
-                <p>Due Date: {this.state.projectTwo.endDate}</p>
-                <h2>Project 2</h2>
-                <h2>{this.state.projectTwo.name}</h2>
-                <div className="mobile-programDashboard-status-box">
-                  {this.state.projectTwo.completed ? <p>Completed</p>: <p>Not Completed</p>}
+              <Link to={`/project-dashboard/${this.state.projectTwo._id}`}>
+                <div className="mobile-programDashboard-project-two">
+                  <p>Start Date: {this.state.projectTwo.startDate}</p>
+                  <p>Due Date: {this.state.projectTwo.endDate}</p>
+                  <h2>Project 2</h2>
+                  <h2>{this.state.projectTwo.name}</h2>
+                  <div className="mobile-programDashboard-status-box">
+                    {this.state.projectTwo.completed ? <p>Completed</p>: <p>Not Completed</p>}
+                  </div>
                 </div>
-              </div>
+              </Link> 
             : <div className="mobile-programDashboard-project-two">
                 <h2>Loading...</h2>
               </div> }
 
             {this.state.projectThree ? 
-              <div className="mobile-programDashboard-project-three">
-                <p>Start Date: {this.state.projectThree.startDate}</p>
-                <p>Due Date: {this.state.projectThree.endDate}</p>
-                <h2>Project 3</h2>
-                <h2>{this.state.projectThree.name}</h2>
-                <div className="mobile-programDashboard-status-box">
-                  {this.state.projectThree.completed ? <p>Completed</p>: <p>Not Completed</p>}
+              <Link to={`/project-dashboard/${this.state.projectThree._id}`}>
+                <div className="mobile-programDashboard-project-three">
+                  <p>Start Date: {this.state.projectThree.startDate}</p>
+                  <p>Due Date: {this.state.projectThree.endDate}</p>
+                  <h2>Project 3</h2>
+                  <h2>{this.state.projectThree.name}</h2>
+                  <div className="mobile-programDashboard-status-box">
+                    {this.state.projectThree.completed ? <p>Completed</p>: <p>Not Completed</p>}
+                  </div>
                 </div>
-              </div>
+              </Link>
             :  <div className="mobile-programDashboard-project-three">
                 <h2>Loading...</h2>
               </div>}
 
-            {this.state.projectFour ? 
-              <div className="mobile-programDashboard-project-four">
-                <p>Start Date: {this.state.projectFour.startDate}</p>
-                <p>Due Date: {this.state.projectFour.endDate}</p>
-                <h2>Project 4</h2>
-                <h2>{this.state.projectFour.name}</h2>
-                <div className="mobile-programDashboard-status-box">
-                {this.state.projectFour.completed ? <p>Completed</p>: <p>Not Completed</p>}
+            {this.state.projectFour ?
+              <Link to={`/project-dashboard/${this.state.projectFour._id}`}>
+                <div className="mobile-programDashboard-project-four">
+                  <p>Start Date: {this.state.projectFour.startDate}</p>
+                  <p>Due Date: {this.state.projectFour.endDate}</p>
+                  <h2>Project 4</h2>
+                  <h2>{this.state.projectFour.name}</h2>
+                  <div className="mobile-programDashboard-status-box">
+                  {this.state.projectFour.completed ? <p>Completed</p>: <p>Not Completed</p>}
+                  </div>
                 </div>
-              </div>
+              </Link>
             : <div className="mobile-programDashboard-project-four">
                 <h2>Loading...</h2>
                </div> }
