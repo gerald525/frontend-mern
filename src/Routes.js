@@ -11,13 +11,13 @@ import ProfileEdit from './components—Pages/ProfileEdit/ProfileEdit'
 import ProjectDashboard from './components—Pages/ProjectDashboard/ProjectDashboard'
 import Navbar from './components/Navbar/Navbar'
 
-
 class Routes extends React.Component {
   render() {
     const { handleLogin, handleInput, currentUser, logout } = this.props
     const token = localStorage.token
     console.log(currentUser)
     return (
+
       <BrowserRouter>
         {token ? <Navbar logout={logout} /> : null }
         <Switch>
@@ -61,7 +61,7 @@ class Routes extends React.Component {
         </Switch>
       </BrowserRouter>
     )
-  }
-}
 
-export default Routes;
+  }
+  
+  export default Routes;
