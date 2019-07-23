@@ -12,7 +12,7 @@ class ProjectDashboard extends React.Component {
   }
 
   componentDidMount = async () => {
-
+    console.log('component did mount')
     // getting the id from its URL
     const id = this.props.match.params.id
     console.log(`project-dashboard url ${id}`)
@@ -32,6 +32,7 @@ class ProjectDashboard extends React.Component {
         projectData: dataOne.data,
         resourceData: dataTwo.data
       })
+      console.log(this.state);
     } catch(err) {
       console.log(err.message);
       this.setState({ error: {
@@ -49,12 +50,14 @@ class ProjectDashboard extends React.Component {
     if (!localStorage.token) {
       return <Redirect to="/login" />
     } else {
+      const { projectData } = this.state
+      console.log(projectData);
       return (
         <div className="mobile-project-dashboard-container">
           <div className="mobile-project-dashboard-contents">
-            {this.state.projectData? <Link to={`/program-dashboard/${this.state.projectData.program}`} ><p>Back</p></Link> : null }
+            {projectData? <Link to={`/program-dashboard/${projectData.program}`} ><p>Back</p></Link> : null }
             <h2>Project 1</h2>
-            {this.state.projectData? <h2>{this.state.projectData.name}</h2> : null }
+            {projectData? <h2>{projectData.name}</h2> : null }
             <div>
               <p>Description</p>
             </div>

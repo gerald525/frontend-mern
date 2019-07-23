@@ -16,19 +16,28 @@ class App extends React.Component {
   login = async (email, password) => {
     const credentials = { email: email, password: password }
     try {
-      return await axios.post(process.env.REACT_APP_API_URL + '/auth/login', credentials)
+      const response = await axios.post(process.env.REACT_APP_API_URL + '/auth/login', credentials)
+      if (response.error) {
+        return response.error
+      } else {
+        return response
+      }
     } catch(err) {
       console.log(err.message);
-      this.setState({ error: {
-        message: 'Could not contact the server',
-        status: 500
+      return { error: {
+          message: err.message,
+          status: err.status
         }
-      })
+      }
+      // const response = { error: {
+      //   message: 'Could not contact the server',
+      //   status: 500
+      //   }
+      // }
     }
   }
 
   logout = () => {
-    console.log('logging out');
     localStorage.removeItem('token')
     this.setState({
       error: null
@@ -39,19 +48,19 @@ class App extends React.Component {
     event.preventDefault()
     const { email, password } = this.state
     const response = await this.login(email, password)
-    console.log(response);
-    if (response.data.error) {
+    if (response.error) {
       this.setState({ error: {
-        message: response.data.error.message,
-        status: response.data.error.status
+        message: response.error.message,
+        status: response.error.status
         }
       })
     } else {
-      localStorage.setItem('token', response.data.token)
-      this.setState({
-        currentUser: response.data.user
-      })
-      console.log(this.state);
+    localStorage.setItem('token', response.data.token)
+    this.setState({
+      currentUser: response.data.user,
+      error: null
+    })
+    console.log(this.state);
     }
   }
 

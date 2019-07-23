@@ -19,16 +19,12 @@ class LandingPageDashboard extends React.Component  {
   
   componentDidMount() {
     const token = localStorage.getItem('token')
-    console.log('first axios.get');
     axios.get(process.env.REACT_APP_API_URL + '/user', {headers: { token: token }})
       .then((responseOne) => {
-        console.log('second axios.get');
         try {
           const id = responseOne.data.user.programs[0]
           axios.get(process.env.REACT_APP_API_URL + `/user/program/${id}`, {headers: { token: token }})
             .then((responseTwo) => {
-              console.log('no error, expect program response');
-              console.log(responseTwo);
               this.setState({
                 programData: responseTwo.data,
                 authentication: true,
@@ -37,7 +33,6 @@ class LandingPageDashboard extends React.Component  {
               })
             })
         } catch(err) {
-          console.log('error getting program data');
           console.log(err.message);
         }
       })
@@ -48,7 +43,6 @@ class LandingPageDashboard extends React.Component  {
 
   render() {
     const program = this.state.currentUser ? this.state.currentUser.programs[0] : null
-    // console.log(`program id for this user : ${program}`)
 
     if(!localStorage.token) {
       return <Redirect to="/login" />
