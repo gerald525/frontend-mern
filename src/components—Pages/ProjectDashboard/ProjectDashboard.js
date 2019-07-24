@@ -45,8 +45,8 @@ class ProjectDashboard extends React.Component {
     }
 
   }
-
-
+  
+  
   render() {
     
     if (!localStorage.token) {
@@ -76,7 +76,9 @@ class ProjectDashboard extends React.Component {
                       state: { resourceData, projectId }
                     }}>
                       <p>{index + 1}. {item.name}</p>
-                      {item.completed ? <p>completed</p> : <p>not completed</p>}
+                      <button>
+                        {resourceData.resources.completed ? '✅' : '⬜️' }
+                      </button>
                     </Link>
                   </div>      
                 ))}
