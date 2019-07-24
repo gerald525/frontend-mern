@@ -162,6 +162,8 @@ http://localhost:5000/admin/seed/users
 
 ## Troubleshooting
 
+
+
 ## Related links
 
 As part of the project, we used the following resources, accessible at their links. 
@@ -181,6 +183,8 @@ As part of the project, we used the following resources, accessible at their lin
 ## Functionality & features
 
 ## Tech stack
+
+
 
 ## Design process
 
@@ -425,11 +429,19 @@ For Javascript-based apps, manipulating data in the browser DOM still often crea
 
 React is also component-based, allowing us to maintain a high level of consistency across the app's views and flexibility with how we choose to structure these views in terms of code file storage.
 
+In addition to being the software choice mandated by the rubric, React was an obvious choice to pair with an Express API backend for this project, as it is fast, flexible, and allows us to easily manage the browser DOM and UI using the tools provided by the React framework, all written in the same (Javascript) software language.
+
 #### Express
+Express is a Javascript framework built on top of Node.js that allows us to build a server and/or and API.　In this case the Express server responds to HTTP requests from the React Client, retreives data or manipulates data in the MongoDB Database and serves responses to back to the Client. Express is the most popular option for projects that want to build their own server in Javascript. 
 
-#### Mocha
 
-#### Jest
+#### Mocha / Chai / Supertest
+Mocha is the framework we chose to test our backend API and database. We originally wrote tests in Jest, but found that because Jest was written specifically for React, there are some potential risks associated with using Jest for other frameworks. The MongoDB docs specifically warn against using Jest and suggest Mocha / Chai instead. 
+
+Mocha is a popular testing language for Javascript, and when paired with Chai provides comprehensive unit testing and integration testing. We used this pair to test the behaviour of our Mongoose Models and controller functions. Supertest allowed us to test the behaviour of our API, and we used it to confirm that our endpoints were returning the correct status responses to HTTP requests, and appropriate errors when requests lack the right credentials for authorization.
+
+#### Jest / Enzyme
+Jest & Enzyme, like Mocha & Chai, are popular testing frameworks used to test Javascript applications, and were built specifically for testing React applications. They provide the same functionality, with some additional functionality (like Snapshots) that allow testing for React-specific features.
 
 #### Joi
 
@@ -437,11 +449,6 @@ We used Joi as opposed to a middleware like Express-validator because its built-
 
 *Screenshot of a Joi object in our app*
 <img src="src/images/MERN_Joi.png" alt="screenshot of object in Joi testing of app" border="1">
-
-
-#### Sinon?
-
-#### Supertest
 
 ### c) A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
 
