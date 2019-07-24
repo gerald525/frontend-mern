@@ -1,0 +1,67 @@
+.profile-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.profile-contents { 
+  height: 95%;
+  width: 90%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--grey);
+}
+
+.profile-contents h1 {
+  margin-top: 1em;
+  font-weight: 400;
+  font-size: 2.5em; 
+}
+
+.profile-contents p {
+  font-size: 1.25em;
+  font-weight: 400;
+  margin-bottom: 0.5em
+}
+/* adjust Link width */
+.profile-contents a {
+  width: 100%;
+}
+
+.profile-data {
+  height: 2em;
+  border: 1px dotted var(--grey);
+  width: 99.5%; 
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-edit-button {
+  height: 1.5em;
+  margin-top: 2em;
+  background: var(--blue);
+  border: none;
+  color: var(--white);
+  font-size: 1.5em;
+  font-weight: 700;
+  width: 99.5%;
+}
+
+.profile-password {
+  font-size: 0.6em;
+}
+
+
+/* mobile responsive media queries */
+/* 350px wide or Less */
+@media only screen and (max-width: 350px) {
+  .profile-password {
+    font-size: 0.5em
+  }
+}

@@ -1,0 +1,117 @@
+.mobile-contents-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white)
+}
+
+.mobile-resource-content {
+  height: 10%;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  /* border: 1px solid black; */
+  color: var(--grey);
+
+}
+
+.mobile-resource-content p {
+  font-weight: 300;
+  font-size: 1.25em;
+  color: var(--grey);
+  margin-top: 1em;
+}
+
+.resource-content-title {
+  margin-left: 2.75em;  
+}
+
+.resource-container {
+  width: 90%;
+  height: 80%;
+  margin-top: 0.125em;
+  /* background-color: dodgerblue; */
+  display: flex;
+  flex-direction: column;
+}
+
+.resource2-content-box {
+  width: 99.5%;
+  height: 12.5em;
+  /* background-color: yellowgreen; */
+  border: 0.125px solid var(--grey);
+  text-align: center;
+}
+
+.resource2-content-box p {
+  margin-top: 3em;
+  font-weight: 400;
+  font-size: 1em;
+  color: var(--grey)
+}
+
+.up-next-container {
+  width: 99.5%;
+  /* background: dodgerblue; */
+  height: 5.75em;
+  /* border: 0.125px solid var(--grey); */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.up-next-container p {
+  font-size: 1.25em;
+  font-weight: 400;
+  margin: 0.5em 0 0.125em 0;
+}
+
+.up-next-link {
+  margin-top: 0.125em;
+  width: 98%;
+  height: 2.5em;
+  border: 3px solid var(--green);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.up-next-link a {
+  width: 35%;
+}
+
+.resource-green-box {
+  width: 100%;
+  height: 2.5em;
+  background-color: var(--green);
+}
+
+.up-next-link p {
+  margin: 0.5em 0 0.125em 1em;
+  font-weight: 300;
+  font-size: 0.875em;
+}
+
+.resource-green-box span {
+  font-size: 2em;
+}
+
+.mobile-project-scroll-box2 {
+  width: 99.5%;
+  height: 12em;
+  margin: 1em 0 0 0;
+  display: flex;
+  flex-direction: column;
+  border: 0.125px solid var(--grey);
+  overflow: auto;
+  text-align: left;
+}
+
+.mobile-project-scroll-box2 p {
+  color: var(--grey);
+  margin: 0.5em 0.25em 0.125em 0.375em 
+}
