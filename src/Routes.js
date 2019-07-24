@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom'
+import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import Login from './components—Pages/Login/Login'
 import NoMatch from './components/NoMatch'
 import LandingPageDashboard from './components—Pages/LandingPageDashboard/LandingPageDashboard'
@@ -9,6 +9,7 @@ import ProgramDashboard from './components—Pages/ProgramDashboard/ProgramDashb
 import Profile from './components—Pages/Profile/Profile'
 import ProfileEdit from './components—Pages/ProfileEdit/ProfileEdit'
 import ProjectDashboard from './components—Pages/ProjectDashboard/ProjectDashboard'
+import Content from './components—Pages/Content/Content'
 import Navbar from './components/Navbar/Navbar'
 
 class Routes extends React.Component {
@@ -42,15 +43,16 @@ class Routes extends React.Component {
           <Route path="/forgotpassword" render={() => {
             return <ForgotPassword/>
           }}/>
-          { token ? <Route path="/program-dashboard/:program" render={(props) => {
+          <Route path="/program-dashboard/:program" render={(props) => {
             return <ProgramDashboard
                       {...props}
-                    // currentUser={currentUser} 
                     />
-          }}/> : <Redirect to="/login" /> }
-
+          }}/> 
           <Route path="/project-dashboard/:id" render={(props) => {
             return <ProjectDashboard {...props} />
+          }}/>
+          <Route path="/content/:id" render={(props) => {
+            return <Content {...props} />
           }}/>
 
           <Route component={NoMatch} />

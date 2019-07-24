@@ -9,6 +9,7 @@ class ProjectDashboard extends React.Component {
   state = {
     projectData: null,
     resourceData: null,
+    projectId: null
   }
 
   componentDidMount = async () => {
@@ -25,14 +26,15 @@ class ProjectDashboard extends React.Component {
     // console.log(response)
     try {
       const dataOne = await axios.get(process.env.REACT_APP_API_URL + `/user/project/${id}`, {headers: { token: token }})
-      console.log(dataOne.data)
+      // console.log(dataOne.data._id)
       const dataTwo = await axios.get(process.env.REACT_APP_API_URL + `/user/project/${id}/resources`, {headers: { token: token }})
-      console.log(dataTwo.data)
+      // console.log(dataTwo.data.resources)
       this.setState({
         projectData: dataOne.data,
-        resourceData: dataTwo.data
+        resourceData: dataTwo.data,
+        projectId: dataOne.data._id
       })
-      console.log(this.state);
+      // console.log(this.state);
     } catch(err) {
       console.log(err.message);
       this.setState({ error: {
@@ -50,19 +52,35 @@ class ProjectDashboard extends React.Component {
     if (!localStorage.token) {
       return <Redirect to="/login" />
     } else {
-      const { projectData } = this.state
+      const { projectData, resourceData, projectId } = this.state
       console.log(projectData);
+      console.log(resourceData)
+      console.log(projectId)
       return (
         <div className="mobile-project-dashboard-container">
           <div className="mobile-project-dashboard-contents">
             {projectData? <Link to={`/program-dashboard/${projectData.program}`} ><p>Back</p></Link> : null }
-            <h2>Project 1</h2>
+            <h2>Project</h2>
             {projectData? <h2>{projectData.name}</h2> : null }
-            <div>
-              <p>Description</p>
+            <div className="mobile-description-project-box">
+              <h3>Description</h3>
+              {projectData? <p>{projectData.description}</p> : null }
             </div>
-            <div>
-              <p>resources</p>
+            <div className="mobile-resources-project-box">
+              <p>Content</p>
+              <div className="mobile-project-scroll-box">
+                {resourceData && resourceData.resources.map((item, index) => (
+                  <div className="mobile-project-resource-data-link" key={index}>
+                    <Link to={{
+                      pathname: `/content/${index + 1}`,
+                      state: { resourceData, projectId }
+                    }}>
+                      <p>{index + 1}. {item.name}</p>
+                      {item.completed ? <p>completed</p> : <p>not completed</p>}
+                    </Link>
+                  </div>      
+                ))}
+              </div>
             </div>
           </div>
         </div>
