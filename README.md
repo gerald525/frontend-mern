@@ -1,6 +1,5 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Overview](#overview)
   - [Who is behind this?](#who-is-behind-this)
@@ -40,13 +39,16 @@
     - [E2E testing](#e2e-testing)
     - [Usability testing](#usability-testing)
 - [User Stories](#user-stories)
+  - [Learner](#learner)
   - [Revision of Learner User stories](#revision-of-learner-user-stories)
     - [Login and Sign up](#login-and-sign-up)
     - [Search functionality](#search-functionality)
     - [Emoticon use in buttons](#emoticon-use-in-buttons)
+  - [Manager](#manager)
   - [Revision of Manager User stories](#revision-of-manager-user-stories)
     - [Analytics page](#analytics-page)
     - [Other revisions](#other-revisions)
+  - [Admin](#admin)
   - [Revision of Admin User stories](#revision-of-admin-user-stories)
     - [Hamburger menu](#hamburger-menu)
     - [Other revisions](#other-revisions-1)
@@ -172,17 +174,20 @@ As part of the project, we used the following resources, accessible at their lin
 The client, MI Academy, is an award-winning Melbourne start-up specialising in customised training solutions on marketing, CX, UX and innovation. 
 
 *MI Academy website*
+
 <img src="src/images/MI_1.png" alt="Screenshot of MI Academy website" border="1"/>
 
 *Examples of MI Academy training programs*
+
 <img src="src/images/MI_2.png" alt="Screenshot of MI Academy website" border="1"/>
 
 *Areas that MI Academy specialise in*
+
 <img src="src/images/MI_3.png" alt="Screenshot of MI Academy website" border="1"/>
 
 We liaised predominantly with the managing director of MI Academy, Alita Harvey-Rodriguez, a respected thought leader and speaker in her field. 
 
-<img src="src/images/Alita.png" alt="Image of Alita Harvey-Rodriguez" border="1"/>
+<img src="src/images/Alita.png" alt="Image of Alita Harvey-Rodriguez" height=300 border="1"/>
 
 ## Purpose of application
 MI Academy wanted a learning portal, or Learning Management System (LMS) for their clients. The main purpose of the app is to provide MI Academy clients with one place they can go to access
@@ -193,19 +198,22 @@ MI Academy wanted a learning portal, or Learning Management System (LMS) for the
 The design of the LMS was to be in line with the MI Academy brand and tone of voice, as per the branding guide and tone of voice guide shown below. 
 
 *MI Academy Brand guide—screenshot*
+
 <img src="src/images/BrandGuide.png" />
 
 We kept all project materials aligned to the brand and kept in mind the MI Academy vision to be world-class in terms of UX. 
 
 *MI Academy vision*
+
 <img src="src/images/MI_5.png" alt="Extract from MI Academy tone of voice documents" border="1" />
 
 We also designed with consideration of the MI Academy personality—to be clear, concise and fun. The extracts below show the relevant parts from the MI Academy Tone of Voice documentation.
 
 *MI Academy Tone of voice extracts—personality and approach to language*
-<img src="src/images/MI_4.png" alt="Extract from MI Academy tone of voice documents" border="1" />
 
-<img src="src/images/MI_6.png" alt="Extract from MI Academy tone of voice documents" border="1" />
+<img src="src/images/MI_4.png" alt="Extract from MI Academy tone of voice documents" height=300 border="1" />
+
+<img src="src/images/MI_6.png" alt="Extract from MI Academy tone of voice documents" height=300 border="1" />
 
 ### Problem description
 MI Academy do face-to-face training with their clients over the course of one year. This is referred to as a Program and is aligned with each client's specific business goals. In a program, there are typically four quarterly projects that aim to help clients progress further towards their business goals. 
@@ -241,7 +249,8 @@ The Minimum Viable Product (MVP) for the project was clarified early on in the p
 - learner.
 
 *Screenshot of slide used to clarify MVP during client meeeting*
-<img src="src/images/MERN_MVP.png" alt="Screenshot of meeting notes" border="1" />
+
+<img src="src/images/MERN_MVP.png" alt="Screenshot of meeting notes" height=300 border="1" />
 
 The app's core functionalities were for users to be able to 
 - log in
@@ -251,7 +260,8 @@ The app's core functionalities were for users to be able to
 - mark course content as complete.
 
 *Screenshot of core functionality in user flow as presented to client*
-<img src="src/images/MERN_UserFlow.png" alt="Screenshot of app user flow and functionality" border="1" />
+
+<img src="src/images/MERN_UserFlow.png" alt="Screenshot of app user flow and functionality" height=300 border="1" />
 
 'Nice-to-haves' were the ability for
 - all users to submit a support ticket request
@@ -326,7 +336,8 @@ We also kept documents we would need to refer to again here, including
 We fleshed out Epic value statements for each of our user types. This helped with planning and estimating story points when we went to individual user stories and their related functionality. 
 
 *Epic value statements*
-<img src="src/images/Epics.png" alt="Epic value statements for the app" border="1" />
+
+<img src="src/images/Epics.png" alt="Epic value statements for the app" height=600 border="1" />
 
 We added non-functional requirements under learners as well at this stage. We thought this non-functional requirement was enough to note, as it would ensure the design of the app supported all users being able to access their information conveniently. 
 
@@ -368,6 +379,8 @@ Due to the time frame, we user tested primarily using each other's devices. Belo
 
 We wrote user stories to help us plan and prioritise the development of the app's features. As is standard for Agile user stories, we formulated stories with the structure 'As a user I want to do x so I can y.'
 
+## Learner 
+
 > As a learner I want to...
 1. login & register an account using my own email address so that my experience is personalised
 2. view a dashboard that contains all of my training program information so that I can review what I have learned and what to study next
@@ -392,29 +405,33 @@ For the first user story, we ended up only including 'Login' and not Sign up (se
 
 *Login screen, after revision*
 
-<img src="src/images/WF_Login.png" alt="Wireframe of login" height=300 border="1" />
+<img src="src/images/WF_Login.png" alt="Wireframe of login" height=450 border="1" />
 
 ### Search functionality
 Search was designed but the functionality was clearly outside our MVP after two weeks. Therefore, we revised this user story and removed it from scope in the MVP. It will be in future iterations. 
 
 *Search design for mobile device*
 
-<img src="src/images/WF_Search.png" alt="Wireframe of search function" height=300 border="1" />
+<img src="src/images/WF_Search.png" alt="Wireframe of search function" height=450 border="1" />
 
 ### Emoticon use in buttons
 
 One of the ideas we played with in wireframes was using emoticons as arrows on buttons. We thought this reflected the 'fun' part of the brand personality that MI Academy have and it was in line with the resources they already have designed, such as workshop slide decks. 
 
 *Extracts from MI Academy slide deck*
+
 <img src="src/images/MI_slide1.png" alt="screenshot of slide deck" border="1" />
 <img src="src/images/MI_slide2.png" alt="screenshot of slide deck" border="1" />
 
 *Experimenting with emoticons on buttons*
+
 <img src="src/images/WF_Emoticons.png" alt="screenshot of slide deck" height=300  border="1" />
 
 MI Academy loved this feature and requested that it be continued throughout the app design where possible. They liked the pointing finger emoticon best, so we used this on buttons throughout the app's navigation. 
 
 The rest of the User stories for Learners were implemented in the first iteration of the app as described.
+
+## Manager  
 
 >As a manager / supervisor I want to...
 
@@ -440,6 +457,7 @@ The analytics page from the first User story was designed in the early stages of
 
 The second User story was outside of scope for the first iteration of the app. The payment User story was removed from the planning since it was not required by the client. 
 
+## Admin
 >As an MI employee (admin) I want to...
 
 1. publish & manage training programs through the administrator dashboard, so that I can flexibly manage and update course options, prices, and content
@@ -526,15 +544,19 @@ We designed lo-fi mobile views after meeting with the client and discovering the
 ### Mobile views
 
 *Login page design and Sign up design (latter not required for MVP)*
+
 <img src="src/images/MERNwf_lofi_mob2.png" alt="Lofi mobile wireframes for login" border="1" />
 
 *Payment pages (not required for MVP) and Project & Content page views*
+
 <img src="src/images/MERNwf_lofi_mob3.png" alt="Lofi mobile wireframes for project views" border="1" />
 
 *Hi-fi hamburger menu and analytics design—not included in later designs as not required for MVP*
+
 <img src="src/images/MERNwf_lofi_mob4.png" alt="Lofi mobile wireframes for content views" border="1" />
 
 *Hi-fi Landing page and Edit profile designs*
+
 <img src="src/images/MERNwf_lofi_mob5.png" alt="Lofi mobile wireframes for manager views" border="1" />
 
 ## Hi-fi wireframes
@@ -573,6 +595,7 @@ For managers, two extra views were required (shown below)
 - your team (showing the learners in that manager's team).
 
 *Hi-fi manager views*
+
 <img src="src/images/MERNwf_hifi_mob1.png" alt="Hi-fi mobile wireframes with final user flow" border="1" />
 
 
@@ -643,19 +666,23 @@ Instructions from CA: Provide Object Oriented design diagrams (UML or alternativ
 At the beginning of the project, we communicated with the client via text message and phone call. We also shared a slide deck for our first two meetings for clearer communication (shown below). The slides acted as our meeting notes record for decisions and next steps. In the first meeting, we gave an overview of our planning steps and began to clarify the MVP. In the second meeting, we clarified the MVP completely and went over User Persoas.
 
 *Slide deck for meeting 1 with MI Academy*
+
 <img src="src/images/MERN_Slides1.png" alt="screenshot of first slide deck" border="1" />
 
 *Slide deck for meeting 2 with MI Academy*
+
 <img src="src/images/MERN_Slides2.png" alt="screenshot of second slide deck" border="1" />
 
 The client was happy with the communication and the quality of the slide deck, as per the text below. 
 
 *Screenshot of text message from client*
+
 <img src='src/images/MERN_Text.PNG' alt='screenshot of text message' border='1'/>
 
 The client was also happy to communicate on Microsoft Teams, which allowed us to easily send files or screenshots for approval. The screenshot underneath the slides below shows evidence of this from when User Personas were sent.
 
 *Screenshot from Microsoft Teams client communication*
+
 <img src='src/images/MERN_Teams1.png' alt='screenshot of client communication in Teams' border='1'/>
 
 # Short Answer Questions
@@ -669,6 +696,7 @@ Software Quality Assurance (SQA) is a field in its own right now, incorporating 
 According to Software Testing Help, quality can be defined as 'meeting the requirement, expectation, and needs of the customer ... free from the defects, lacks and substantial variants'. In our context, the requirements, expectations and needs come from our client and quality can be measured against these and also against standards from external bodies, such as the international set of standards, ISO/IEC/IEEE 29119 Software Testing.
 
 *Software Quality Assurance Plan graphic* 
+
 <img src="src/images/SQA.jpg" alt="Software Quality Assurance Plan" border="1" />
 Source: https://www.softwaretestinghelp.com/software-quality-assurance/
 
@@ -787,7 +815,6 @@ For example, we communicated our preferences earlier on and pair programmed part
 Another example is the way that the group worked hard to understand all parts of the code, but were more familiar with the parts we personally worked on and spent time focusing deeply on those sections only. The level of attention to detail we each had was different, so at one stage, we had different naming conventions to what was agreed earlier during planning. Because of this, we needed to regroup and restructure the front end, which was time-consuming and frustrating. However, we became even better at communicating and clarifying everyone's understanding after this. 
 
 ### Future suggestions for improvement
-
 
 
 ## Presentation
