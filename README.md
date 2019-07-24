@@ -76,9 +76,59 @@ This markdown file provides an overview of the planning and build details of a r
 
 # Instructions
 
-To run this app, complete the following steps.
+A live version of this application can be found at https://mi-academy.netlify.com/.
 
-## Set up
+
+## Set up 
+To run this application locally on your computer, complete the following steps.
+
+### Downloading the code:
+To download the code to your computer, navigate to the directory you want to use on your computer and install both repositories. You'll need to run the following code from the root of your directory: <br>
+Backend: `git clone https://github.com/JoshTeperman/mern-project-backend.git` <br>
+Frontend: `git clone https://github.com/JoshTeperman/mern-project-backend.git` 
+
+You should now have a folder structure that looks like this:
+
+Root Directory\
+-mern-project-backend/\
+-mern-project-frontend/
+
+Alternatively, you can download the code directly to your hard-drive: \
+https://github.com/JoshTeperman/mern-project-backend/archive/master.zip\
+https://github.com/JoshTeperman/mern-project-frontend/archive/master.zip
+
+
+### Back End Setup:
+To run the back end server, you will need to have Node.js installed on your machine. You can install Node at one of these websites: \
+https://docs.npmjs.com/downloading-and-installing-node-js-and-npm\
+https://nodejs.org/en/download/\
+... or if you have Homebrew installed run `brew install node` from console. 
+
+Once you have Node installed, navigate into your backend directory `cd mern-project-backend` and run `npm install` to install the project dependencies. 
+
+You can now run `npm start` to run the express server and connect to the development database. If successful, you shold see the following logs in console:
+
+``` 
+listening on PORT 5000
+✅  Connected to MongoDB
+```
+
+### Front End Setup:
+Follow the same steps to install the front end dependencies:
+
+Navigate to the front end directory:
+
+`cd mern-project-front-end`<br>
+
+Install front end dependencies:
+
+`npm install`
+
+Start the front-end server:
+
+`npm start`
+
+You will see the server load in terminal, and if there are no errors you will be able to navigate to `http://localhost:3000/` in your web browser to view a live version of the website. 
 
 ## Configuration
 
