@@ -106,6 +106,16 @@ https://nodejs.org/en/download/\
 
 Once you have Node installed, navigate into your backend directory `cd mern-project-backend` and run `npm install` to install the project dependencies. 
 
+Next, create a new file named `.env` in your root directory and add the following, replacing the brackets `{}` with your own values:
+
+DB_URL=mongodb://localhost:27017/{database name} <br>
+JWT_SECRET={secret key} <br>
+seedPassword={seed password}
+
+`DB_URL` Should be the name you want to call your database. `JWT_SECRET` and `seedPassword` can be any random string.
+
+Next, run `mongod` in terminal to initialize the the MongoDB database. This will create a new database and run it locally on your machine. 
+
 You can now run `npm start` to run the express server and connect to the development database. If successful, you shold see the following logs in console:
 
 ``` 
@@ -130,9 +140,25 @@ Start the front-end server:
 
 You will see the server load in terminal, and if there are no errors you will be able to navigate to `http://localhost:3000/` in your web browser to view a live version of the website. 
 
-## Configuration
+## Configuration for local deployment
 
-## Deployment
+### Seeding 
+To get the application working on your local machine you will need to seed data in the database. To use the seeds provided, you will need to make HTTP POST requests to the seed endpoints using your preferred HTTP client (Postman is a popular example: https://www.getpostman.com/downloads/)
+
+Authorization is required to seed the database. To do this, add send POST requests with the key/value pair in the headers.
+
+ `key: 'password', 'value: '{your seedPassword}'` 
+
+On your local machine, you should be able to make a POST request to:
+http://localhost:5000/admin/seed
+
+For deployment to MongoDB Atlas and other service providers, the following POST endpoints are provided if you run into Timeout issues. These endpoints should be hit in the following order:
+
+http://localhost:5000/admin/seed/clients
+http://localhost:5000/admin/seed/programs
+http://localhost:5000/admin/seed/projects
+http://localhost:5000/admin/seed/resources
+http://localhost:5000/admin/seed/users
 
 ## Troubleshooting
 
