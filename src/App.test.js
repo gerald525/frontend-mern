@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme, { shallow, render, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import Login from './components/Login/Login';
 import App from './App';
 
 // describe('Test case for testing login', () => {
