@@ -20,12 +20,6 @@ class Routes extends React.Component {
       <BrowserRouter>
         {token ? <Navbar logout={logout} /> : null }
         <Switch>
-          <Route exact path="/login" render={() => {
-            return <Login 
-              handleLogin={handleLogin} 
-              handleInput={handleInput} 
-            />
-          }} />
           <Route exact path="/landing-page-dashboard" render={() => {
             console.log('landing-page-dashboard route')
             return   <LandingPageDashboard currentUser={currentUser} />
@@ -54,7 +48,18 @@ class Routes extends React.Component {
           <Route path="/content/:id" render={(props) => {
             return <Content {...props} />
           }}/>
-
+          <Route exact path="/login" render={() => {
+            return <Login 
+              handleLogin={handleLogin} 
+              handleInput={handleInput} 
+            />
+          }} />
+          <Route exact path="/" render={() => {
+            return <Login 
+              handleLogin={handleLogin} 
+              handleInput={handleInput} 
+            />
+          }} />
           <Route component={NoMatch} />
         </Switch>
       </BrowserRouter>
