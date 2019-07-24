@@ -160,9 +160,6 @@ http://localhost:5000/admin/seed/projects
 http://localhost:5000/admin/seed/resources
 http://localhost:5000/admin/seed/users
 
-## Troubleshooting
-
-
 
 ## Related links
 
@@ -177,13 +174,22 @@ As part of the project, we used the following resources, accessible at their lin
 
 ### Problem description
 
-
 ### Solution proposed
 
 ## Functionality & features
 
-## Tech stack
+## Architecture
 
+Our software is separated into two main sections and broadly follows separation of concerns and an MVC model. 
+
+### Backend: Model (M) and Controller (C) 
+- Node.js API / server written with the Express.js module that routes Client HTTP requests, interacts with the database, handles data & model validation, stores and manages private keys and passwords, encrypts and decrypts user passwords and user tokens, and provides routing and other business logic.
+- Locally run instance of MongoDB Database for Development with a MongoDB Atlas cloud-based Database for Production. 
+
+### Frontend: View (V)
+- React.js Client UI, which provides front-end pages and routes, interacts with the backend API, retreives and stores user authentication tokens, tracks current user information and manages User Interface and display.
+
+## Tech stack
 
 
 ## Design process
