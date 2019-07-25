@@ -34,7 +34,6 @@ class ProjectDashboard extends React.Component {
       }
     })
     }
-
   }
   
   render() {

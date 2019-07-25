@@ -17,8 +17,8 @@ class ProgramDashboard extends React.Component {
   
   
   componentDidMount = async () => {
-    // getting the id from its URL
     const id = this.props.match.params.program
+    console.log(id)
     // need token id for authorisation
     const token = localStorage.token
     // fetching all projects
@@ -40,8 +40,6 @@ class ProgramDashboard extends React.Component {
 }
 
 render() {
-  const { projectOne, projectTwo, projectThree, projectFour} = this.state
-  
   if (!localStorage.token) {
     return <Redirect to="/login" />
   } else {
