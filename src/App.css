@@ -9,11 +9,17 @@
 @import './components—Pages/Profile/Profile.css';
 @import './components/Search/Search.css';
 
+form #email, #password {
+  border: none;
+  height: 3em;
+  margin-bottom: 0.5em;
+}
+
 .App {
   text-align: center;
-  /* background-color: aqua;
+  /* background-color: aqua; */
   width: 100vw;
-  height: 100vh; */
+  height: 100vh; 
 }
 
 .App-logo {
@@ -57,6 +63,7 @@
   --white: #ffffff;
 }
 
+
 /* Remove the react LINK underlines */
 a {
   text-decoration: none;
@@ -64,8 +71,10 @@ a {
 
 /* Desktops and laptops */
 /* @media only screen and (min-width : 1224px) {
- .login-background {
-   display: none;
- }
-} */
+  .login-background {
+    
+  }
+}  */
+
+
 
