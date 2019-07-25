@@ -41,7 +41,7 @@ class LandingPageDashboard extends React.Component  {
   }
 
   render() {
-    const { currentUserEmail, programData } = this.state
+    const { currentUserEmail } = this.state
     const program = this.state.currentUser ? this.state.currentUser.programs[0] : null
     const currentUser = this.state.currentUser ? this.state.currentUser : null
     if(!localStorage.token) {
@@ -60,7 +60,6 @@ class LandingPageDashboard extends React.Component  {
               <Link to={`/program-dashboard/${program}`} >
                 <div className="mobile-program-link">
                 <p>Program</p>
-                {programData ? <small className="mobile-landingPage-data">[ {programData.name} ]</small> : <small>Loading program name...</small>}
                 </div>
               </Link>
               <Link to={{
