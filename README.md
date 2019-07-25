@@ -784,15 +784,25 @@ According to Software Testing Help, quality can be defined as 'meeting the requi
 <img src="src/images/SQA.jpg" alt="Software Quality Assurance Plan" border="1" />
 Source: https://www.softwaretestinghelp.com/software-quality-assurance/
 
-While there are numerous criteria listed for the quality of software, we know that today, successful software is developed with a customer-centric focus where human-centred design reigns supreme. Hence, we feel that these following four criteria are the most important.
+While there are numerous criteria listed for the quality of software, we know that today, successful software is developed with a customer-centric focus where human-centred design reigns supreme. Hence, we feel that these following six criteria are the most important.
 
-- User stories committed to and delivered
-    - Software must be designed with its users at the centre. While software design in the past might have been disconnected from its users, today good user experience is vital when the market is competitive and fast-moving. The first part of providing enjoyable user experience can be found in the design thinking Double Diamond—'Design the right thing', as shown below. This starts with User stories. 
+### User stories committed to and delivered
+Software must be designed with its users at the centre. While software design in the past might have been disconnected from its users, today good user experience is vital when the market is competitive and fast-moving. The first part of providing enjoyable user experience can be found in the design thinking Double Diamond—'Design the right thing', as shown below. This starts with User stories. 
 
     *Double Diamond V2 from Dan Nessler https://uxdesign.cc/how-to-fuck-up-the-design-thinking-process-and-make-it-right-dc2cb7a00dca*
     <img src="src/images/DoubleDiamond.png" alt="Double diamond" border="1" />
+
 - User sentiment
     - The second sentiment from the double diamond, 'Design things right', relies on user feedback. As a result, we believe this is also a key criteria when evaluating the quality of software. After all, what's the point of well-designed software if nobody will use it? 
+
+- Appropriate balance of the 'software trifecta'
+
+  - As the saying goes, software can be fast, cheap and high quality, but cannot be all three. You have to pick two. Appropriate software development takes the requirements of the project into account and finds a balance between Quality, Cost and Development Speed, as represented in the graphic below.
+
+  In our case we were forced to sacrifice some quality to achieve MVP within a limited amount of time.
+
+  *Software trifecta*
+  <img src="src/images/trifecta.jpg" height=450 alt="Software Trifecta" border="1" />
 
 - Continuous improvement
     - Unless it is able to be used over a reasonable life cycle, software may not be worth the cost in time and energy to develop it. Accordingly, we believe continuous improvement is important because it allows software to remain best practice in terms of design and efficiency and allows design teams to respond to changes in the field as required. 
@@ -800,7 +810,8 @@ While there are numerous criteria listed for the quality of software, we know th
 - Production incidents over time
     - Software might deliver on User stories but be too buggy for people to feel comfortable using. Therefore, production incidents over time, particularly if they recur, are an important metric that seem to be often overlooked. 
 
-    ADD TWO
+- Comprehensive testing
+    - Any software application needs a comprehensive suite of tests to ensure code quality over time. Test suites allow for code to be tested before critical deployments to make sure there are no breaking changes, are used to pinpoint the exact location of bugs and failed software, are used to test and prepare for unexpected user behaviour, and are often used as a part of the development process itself (in mathods like Test Driven Development) as a way to enforce code quality. 
 
 ## b) What libraries are being used in the app and why?
 
