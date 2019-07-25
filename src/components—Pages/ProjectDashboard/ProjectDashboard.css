@@ -13,9 +13,86 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  color: var(--grey)
 }
 
+.mobile-project-dashboard-contents h2 {
+  font-weight: 400;
+  margin: 0 0.125em 0.125em 0.125em;
+  font-size: 1.25em
+}
 
+.mobile-project-dashboard-contents p {
+  font-weight: 300;
+  font-size: 1.25em;
+  color: var(--grey)
+}
 
+.mobile-description-project-box {
+  width: 99.5%;
+  height: 10em;
+  margin: 1.25em 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 0.125px solid var(--grey);
+}
 
+.mobile-description-project-box h3 {
+  font-weight: 300;
+  font-size: 1.25em;
+  margin: 0.375em 0 0 0.5em; 
+}
+
+.mobile-description-project-box p {
+  margin: 0.75em 0 0 0.625em;
+  font-weight: 300;
+  font-size: 0.8em;
+}
+
+.mobile-resources-project-box {
+  width: 99.5%;
+  height: 13em;
+  margin: 1.25em 0 0 0;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  border: 0.125px solid var(--grey);
+}
+
+.mobile-resources-project-box p {
+  font-weight: 300;
+  font-size: 1.25em;
+  margin: 0.375em 0 0 0.5em; 
+}
+
+.mobile-project-scroll-box {
+  width: 95%;
+  height: 75%;
+  margin: 2.5% 0 0 2.5%;
+  border: 0.125px solid var(--grey);
+  overflow: auto;
+}
+
+.mobile-project-resource-data-link {
+  width: 90%;
+  height: 2.75em;
+  border: 0.125px solid var(--grey);
+  margin: 0.375em 0 0.375em 0.25em;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+}
+
+.mobile-project-resource-data-link a {
+  display: flex;
+  flex-direction: row
+}
+
+.mobile-project-resource-data-link p {
+  font-weight: 400;
+  font-size: 0.75em;
+  width: 17em;
+  height: 3em
+}
