@@ -36,3 +36,16 @@
 //     expect(loading().state().status).toEqual('loading')
 //   })
 // });
+
+import React from "react";
+import Enzyme, { shallow } from "enzyme";
+import Loading from "./Loading"
+
+describe("Loading message appears", () => {
+    test('renders correctly', () => {
+        const wrapper = shallow(
+            <Loading />
+        );
+        expect(wrapper).toMatchSnapshot();
+    });
+});

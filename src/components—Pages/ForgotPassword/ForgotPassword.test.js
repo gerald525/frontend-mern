@@ -1,10 +1,10 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
-import LandingPageDashboard from "./LandingPageDashboard"
+import ForgotPassword from "./ForgotPassword"
 
 it('renders correctly', () => {
     const wrapper = shallow(
-        <LandingPageDashboard />
+        <ForgotPassword />
     );
     expect(wrapper).toMatchSnapshot();
 });
