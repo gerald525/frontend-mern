@@ -31,7 +31,6 @@ class ProgramDashboard extends React.Component {
         projectFour: response.data.projects[3]     
       })
     } catch(err) {
-      console.log(err.message);
       this.setState({ error: {
         message: 'Could not contact the server',
         status: 500
@@ -40,7 +39,9 @@ class ProgramDashboard extends React.Component {
   }
 }
 
-render() { 
+render() {
+  const { projectOne, projectTwo, projectThree, projectFour} = this.state
+  
   if (!localStorage.token) {
     return <Redirect to="/login" />
   } else {

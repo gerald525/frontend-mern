@@ -1,9 +1,7 @@
 import React from 'react';
-// const logo = require('../../images/MIAcademy_logo-_white.png')
 require('./ForgotPassword.css')
 
 const ForgotPassword = ({ handleInput, handleSubmit }) => {
-  console.log("ForgotPassword")
   return (
     <div className="forgot-password-container">
       <div className="password-content-container">

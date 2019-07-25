@@ -1,10 +1,10 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
-import LandingPageDashboard from "./LandingPageDashboard"
+import ProfileEdit from './ProfileEdit';
 
 it('renders correctly', () => {
     const wrapper = shallow(
-        <LandingPageDashboard />
+        <ProfileEdit />
     );
     expect(wrapper).toMatchSnapshot();
 });

@@ -13,11 +13,11 @@ class ProjectDashboard extends React.Component {
   }
 
   componentDidMount = async () => {
-    console.log('component did mount')
     // getting the id from its URL
     const id = this.props.match.params.id
     // need token id for authorisation
     const token = localStorage.token
+
     try {
       const dataOne = await axios.get(process.env.REACT_APP_API_URL + `/user/project/${id}`, {headers: { token: token }})
       const dataTwo = await axios.get(process.env.REACT_APP_API_URL + `/user/project/${id}/resources`, {headers: { token: token }})

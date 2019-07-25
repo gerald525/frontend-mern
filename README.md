@@ -7,11 +7,14 @@
   - [What is in this README?](#what-is-in-this-readme)
 - [Instructions](#instructions)
   - [Set up](#set-up)
-  - [Configuration](#configuration)
+    - [Downloading the code](#downloading-the-code)
+    - [Back End Setup](#back-end-setup)
+    - [Front End Setup](#front-end-setup)
+  - [Configuration for local deployment](#configuration-for-local-deployment)
+    - [Seeding](#seeding)
   - [Deployment](#deployment)
     - [Frontend Client](#frontend-client)
     - [Backend Server](#backend-server)
-  - [Troubleshooting](#troubleshooting)
   - [Related links](#related-links)
 - [Application information](#application-information)
   - [Purpose of application](#purpose-of-application)
@@ -21,15 +24,16 @@
       - [Problem 3](#problem-3)
     - [Solution proposed](#solution-proposed)
   - [Functionality & features](#functionality--features)
+  - [Architecture](#architecture)
+    - [Backend: Model (M) and Controller (C)](#backend-model-m-and-controller-c)
+    - [Frontend: View (V)](#frontend-view-v)
   - [Tech stack](#tech-stack)
-    - [Front-end](#front-end)
-    - [Back-end](#back-end)
-    - [Database](#database)
-    - [Deployment](#deployment-1)
-    - [Architecture](#architecture)
     - [Code style](#code-style)
+      - [Application Usability](#application-usability)
+      - [Code Readability & Extensibility](#code-readability--extensibility)
 - [Design process](#design-process)
   - [Source control process](#source-control-process)
+    - [Github](#github)
   - [Project management](#project-management)
     - [Trello](#trello)
     - [Estimating timings](#estimating-timings)
@@ -73,14 +77,17 @@
 - [Client communications](#client-communications)
 - [Short Answer Questions](#short-answer-questions)
   - [a) What are the most important aspects of quality software?](#a-what-are-the-most-important-aspects-of-quality-software)
+    - [User stories committed to and delivered](#user-stories-committed-to-and-delivered)
+    - [User sentiment](#user-sentiment)
+    - [Appropriate balance of the 'software trifecta'](#appropriate-balance-of-the-software-trifecta)
+    - [Continuous improvement](#continuous-improvement)
+    - [Production incidents over time](#production-incidents-over-time)
+    - [Comprehensive testing](#comprehensive-testing)
   - [b) What libraries are being used in the app and why?](#b-what-libraries-are-being-used-in-the-app-and-why)
     - [React](#react)
-    - [Joi](#joi)
     - [Express](#express)
-    - [Mocha](#mocha)
-    - [Jest](#jest)
-    - [Sinon?](#sinon)
-    - [Supertest](#supertest)
+    - [Mocha / Chai / Supertest](#mocha--chai--supertest)
+    - [Jest / Enzyme](#jest--enzyme)
   - [c) A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?](#c-a-team-is-about-to-engage-in-a-project-developing-a-website-for-a-small-business-what-knowledge-and-skills-would-they-need-in-order-to-develop-the-project)
     - [User requirements](#user-requirements)
     - [Future plans for website](#future-plans-for-website)
@@ -89,12 +96,14 @@
     - [Technical skills](#technical-skills)
     - [Domain knowledge](#domain-knowledge)
     - [Interpersonal skills](#interpersonal-skills)
-  - [e) Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?](#e-evaluate-how-effective-your-knowledge-and-skills-were-this-project-using-examples-and-suggest-changes-or-improvements-for-future-projects-of-a-similar-nature)
+  - [e) Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature.](#e-evaluate-how-effective-your-knowledge-and-skills-were-this-project-using-examples-and-suggest-changes-or-improvements-for-future-projects-of-a-similar-nature)
     - [Evaluation of effectiveness](#evaluation-of-effectiveness)
     - [Future suggestions for improvement](#future-suggestions-for-improvement)
 - [Presentation](#presentation)
   - [Slide deck](#slide-deck)
 - [Close of project](#close-of-project)
+  - [Client satisfaction survey](#client-satisfaction-survey)
+  - [End of project handover](#end-of-project-handover)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -116,14 +125,14 @@ There is an overview of the planning and build details of a real-world MERN app 
 
 A live version of this application can be found at https://mi-academy.netlify.com/.
 
-
 ## Set up 
 To run this application locally on your computer, complete the following steps.
 
-### Downloading the code:
+### Downloading the code
 To download the code to your computer, navigate to the directory you want to use on your computer and install both repositories. You'll need to run the following code from the root of your directory: <br>
-Backend: `git clone https://github.com/JoshTeperman/mern-project-backend.git` <br>
-Frontend: `git clone https://github.com/JoshTeperman/mern-project-backend.git` 
+>Backend `git clone https://github.com/JoshTeperman/mern-project-backend.git` <br>
+
+>Frontend: `git clone https://github.com/JoshTeperman/mern-project-backend.git` 
 
 You should now have a folder structure that looks like this:
 
@@ -133,16 +142,24 @@ Root Directory\
 
 Alternatively, you can download the code directly to your hard-drive: \
 https://github.com/JoshTeperman/mern-project-backend/archive/master.zip\
+
 https://github.com/JoshTeperman/mern-project-frontend/archive/master.zip
 
 
-### Back End Setup:
+### Back End Setup
 To run the back end server, you will need to have Node.js installed on your machine. You can install Node at one of these websites: \
 https://docs.npmjs.com/downloading-and-installing-node-js-and-npm\
 https://nodejs.org/en/download/\
-... or if you have Homebrew installed run `brew install node` from console. 
+or if you have Homebrew installed run `brew install node` from console. 
 
-Once you have Node installed, navigate into your backend directory `cd mern-project-backend` and run `npm install` to install the project dependencies. 
+Once you have Node installed, do the following. 
+
+Navigate into your backend directory.
+>`cd mern-project-backend`
+
+Install the project dependencies.
+
+> `npm install`
 
 Next, create a new file named `.env` in your root directory and add the following, replacing the brackets `{}` with your own values:
 
@@ -161,20 +178,20 @@ listening on PORT 5000
 ✅  Connected to MongoDB
 ```
 
-### Front End Setup:
+### Front End Setup
 Follow the same steps to install the front end dependencies:
 
-Navigate to the front end directory:
+Navigate to the front end directory.
 
-`cd mern-project-front-end`<br>
+>`cd mern-project-front-end`<br>
 
-Install front end dependencies:
+Install front end dependencies.
 
-`npm install`
+>`npm install`
 
-Start the front-end server:
+Start the front-end server.
 
-`npm start`
+>`npm start`
 
 You will see the server load in terminal, and if there are no errors you will be able to navigate to `http://localhost:3000/` in your web browser to view a live version of the website. 
 
@@ -239,11 +256,16 @@ The client, MI Academy, is an award-winning Melbourne start-up specialising in c
 
 <img src="src/images/MI_3.png" alt="Screenshot of MI Academy website" border="1"/>
 
-We liaised predominantly with the managing director of MI Academy, Alita Harvey-Rodriguez, a respected thought leader and speaker in her field. 
+*MI Academy team*
+
+MI Academy is a small team of experts with staff in Melbourne, Hobart and Adelaide. Their work with clients across Australia and New Zealand.
+
+We liaised predominantly with the managing director, Alita Harvey-Rodriguez, a respected thought leader and speaker in the fields of digital marketing, creativity and innovation. 
 
 <img src="src/images/Alita.png" alt="Image of Alita Harvey-Rodriguez" height=300 border="1"/>
 
 ## Purpose of application
+
 MI Academy wanted a learning portal, or Learning Management System (LMS) for their clients. The main purpose of the app is to provide MI Academy clients with one place they can go to access
 - year-long MI Academy Program information
 - quarterly MI Academy Project information
@@ -270,6 +292,7 @@ We also designed with consideration of the MI Academy personality—to be clear,
 <img src="src/images/MI_6.png" alt="Extract from MI Academy tone of voice documents" height=300 border="1" />
 
 ### Problem description
+
 MI Academy do face-to-face training with their clients over the course of one year. This is referred to as a Program and is aligned with each client's specific business goals. In a program, there are typically four quarterly projects that aim to help clients progress further towards their business goals. 
 
 #### Problem 1
@@ -292,7 +315,6 @@ We proposed an LMS as a solution that could deal with all of these problems. An 
 - keep content in one place for clients
 - facilitate clients revising content they learn in workshops
 - measure and report on their clients' progress in terms of content covered.
-
 
 ## Functionality & features
 
@@ -336,29 +358,58 @@ Our software is separated into two main sections and broadly follows separation 
 
 ## Tech stack
 We used the MERN Stack as the core of our application. The full list of languages & Frameworks used is:
-- MongoDB
-- Express.js
-- React.js
-- Node.js
-- 
-
-### Deployment 
-- netlify.com
-- now.sh
-
+- MongoDB database with Joi library for Model validation
+- Express.js and Node.js server
+- Bcrypt and JSON Webtokens for user authentication and authorization
+- HTML, CSS & React.js with BrowserRouter for front-end UI and Client-side logic
+- Jest, Mocha, Enzyme, Chai, and Supertest for testing
+- now.sh used with Netlify for deployment
 
 ### Code style
 
-Check rubric: Utilises highly sophisticated functions, demonstrating an exceptional level of understanding; Advanced functional programming concepts including Immediately-Invoked Function Expression (IIFE), etc
+The intention with this application was to keep it as simple as possible, keeping in mind usablility, readability, and extensibility with solid documentation so that future development would not rely on the current team.
+
+#### Application Usability
+- We wanted the UI to be very simple, intuitive, and fast for the user.
+- We wanted to minimize the amount of 'clicks' required to navigate the app
+- We wanted relavent information to be immediately available and not hidden inside menus
+- We wanted to the UI to display personalized information to the user, including greeting the user by name and showing their own program information and progress
+- We wanted to minimize the number of database calls and cache information where possible to provide a seamless, lightning-fast user experience
+
+
+#### Code Readability & Extensibility
+- We followed DRY principles as much as possible. Repeated and shared code has been extracted into functions, for example there are multiple methods that create a User in the database, therefore this code has been turned into its own method. 
+- We modularized our code as much as possible and created a folder structure to make the code easy to navigate. It should be relatively simple to understand this structure to someone coming to the code for the first time, or ourselves in six months time. 
+- Frontend code contains folders for each component, their styles and tests
+- Backend code has extracted the logic for the Server / Express App, config, routes, controllers & business logic, utility methods and tests
+- We have provided tests for happy path as well as a number of unhappy path tests for backend that confirm authorization, routes, and model validations are working as expected. 
+- Tests and file structure should provide future development teams with confidence should they decide to refactor or extend the application.
+- We have attempted to be logical and declarative with directory, file, variable and method naming 
 
 # Design process
 
 ## Source control process
 
-Github 
+### Github 
 
-Note: mention how we used multiple feature branches or didn't need them with commits from all team members
-screenshots
+We used Git and GitHub to manage source control, versioning and collaboration on our project. 
+
+We set up two separate repositories, for frontend and backend code, with all members set up as collaborators. 
+
+We created and agreed upon rules of conduct to ensure proper version control, avoid bugs and merge conflicts, enforce proper 
+reviews and therefore try to maximise code quality and productivity. 
+
+1. Each member of the team would have administrator access to the repositories, but would only push from their own branches, never from master.
+2. Code review is required but at least one member of the team for a pull request to be merged with the master branch. This can be overidden with Administrator priveleges but was highly discouraged. 
+3. Only branches that are up-to-date with master can be merged.
+4. We decided that given the limited feature complexity of our product initially, it wasn't necessary to use feature branches, although we did in some cases.
+
+*Screenshot of GitHub rules created for our repositories*
+
+<img src="src/images/GitHub_branch_rules.png" alt="GitHub Branch Rules" border="1" />
+
+> Screenshot of feature branch and other branch activity:
+<img src="src/images/GitHub_feature_branch.png" alt="GitHub Feature Branch" border="1" />
 
 ## Project management
 
@@ -374,20 +425,38 @@ As we developed Epics, User stories and estimated Story points, we recorded deta
 
 ### Estimating timings
 
-We estimated times in terms of days (e.g. half a day or 2 days' work). Then we added deadlines to cards, as shown below. 
+We estimated times for features related to User stories in terms of days (e.g. half a day or 2 days' work). Then we added deadlines to cards, as shown below. 
 
-*Trello board, Day 1*
+*Evidence of timings, deadlines in green labels on Trello cards*
+
+<img src="src/images/Trello1.png" alt="screenshot of Trello board" height=450 border="1" />
+
+*Trello board, start of project*
+
+<img src="src/images/Trello2.png" alt="screenshot of Trello board" border="1" />
+
+*Trello board, middle of Week 1*
+
+<img src="src/images/Trello4.png" alt="screenshot of Trello board" border="1" />
+<img src="src/images/Trello5.png" alt="screenshot of Trello board" border="1" />
 
 *Trello board, end of Week 1*
 
+<img src="src/images/Trello3.png" alt="screenshot of Trello board" border="1" />
 *Trello borad, end of Week 2*
 
+*Trello board, mid-project*
 
+<img src="src/images/Trello6.png" alt="screenshot of Trello board" border="1" />
 
-We also kept documents we would need to refer to again here, including
-- MI Academy documents (e.g. branding guide, logos)
-- Rubric for Coder Academy assessment
-- README requirements.
+*Trello board, start of last day*
+
+<img src="src/images/TrelloFinal.png" alt="screenshot of Trello board" border="1" />
+
+We also kept information we would need to refer to again here. These reference documents and Trello cards consisted of
+- MI Academy documents (e.g. branding guide, logos)—CLIENT INFO/BRANDING column
+- Screenshots of eßach separate rubric criterion for Coder Academy assessment—RUBRIC column
+- README requirements—README column.
 
 ### Agile Epics
 
@@ -403,18 +472,34 @@ Note: refer to Excellent use of task delegation with Kanban board of tickets ass
 
 ## Testing 
 
+Our test suite covers the happy path for both frontend and backend code. 
+
 Note: Tie to user stories 
 Rubric: Flawless code flow control: documented test coverage/successful results for all user stories, including corner cases
 
+*Backend test suite*
+
+![Backend test suite](src/images/tests.png)
+
+*Frontend test suite*
+
+![Backend test suite](src/images/frontendtests.png)
+
 ### Unit testing
-We did unit tests for functions and components in the Learner and Manager user stories, which were the user stories that made up MVP.
+
+We attempted to cover all our methods and api routes with unit tests with unit tests. We used happy bath tests and unhappy path tests to ensure models were validating correctly and routes were being accessed with the correct authorization. We developed a model that can be replicated across our codebase but ran out of time to deploy it fully.
 
 
 ### Integration testing
 
-<img src=>
+The majority of our integration testing was done using Postman to test HTTP requests and endpoints were returning the correct data, as well as writing integration tests and including them in our test suite.
 
 ### E2E testing
+
+We chose to do integration and E2E testing manually rather than take the time to install and configure a framework like Cypress. It would be appropriate to deploye Cypress should the project progress and require more comprehensive automated test coverage. 
+
+Our most common methodology was to run both the front and backend code in unison and mimic user behaviour to ensure the application worked as expected. Any bugs we discovered that weren't triggering failed unit tests we would write tests for, or in cases where we had tests that weren't failing we would tweak the tests to ensure we had better coverage.
+
 
 ### Usability testing
 
@@ -757,35 +842,46 @@ According to Software Testing Help, quality can be defined as 'meeting the requi
 <img src="src/images/SQA.jpg" alt="Software Quality Assurance Plan" border="1" />
 Source: https://www.softwaretestinghelp.com/software-quality-assurance/
 
-While there are numerous criteria listed for the quality of software, we know that today, successful software is developed with a customer-centric focus where human-centred design reigns supreme. Hence, we feel that these following four criteria are the most important.
+While there are numerous criteria listed for the quality of software, we know that today, successful software is developed with a customer-centric focus where human-centred design reigns supreme. Hence, we feel that these following six criteria are the most important.
 
-- User stories committed to and delivered
-    - Software must be designed with its users at the centre. While software design in the past might have been disconnected from its users, today good user experience is vital when the market is competitive and fast-moving. The first part of providing enjoyable user experience can be found in the design thinking Double Diamond—'Design the right thing', as shown below. This starts with User stories. 
+### User stories committed to and delivered
+Software must be designed with its users at the centre. While software design in the past might have been disconnected from its users, today good user experience is vital when the market is competitive and fast-moving. The first part of providing enjoyable user experience can be found in the design thinking Double Diamond—'Design the right thing', as shown below. This starts with User stories. 
 
-    *Double Diamond V2 from Dan Nessler https://uxdesign.cc/how-to-fuck-up-the-design-thinking-process-and-make-it-right-dc2cb7a00dca*
-    <img src="src/images/DoubleDiamond.png" alt="Double diamond" border="1" />
-- User sentiment
-    - The second sentiment from the double diamond, 'Design things right', relies on user feedback. As a result, we believe this is also a key criteria when evaluating the quality of software. After all, what's the point of well-designed software if nobody will use it? 
+*Double Diamond V2 from Dan Nessler* 
 
-- Continuous improvement
-    - Unless it is able to be used over a reasonable life cycle, software may not be worth the cost in time and energy to develop it. Accordingly, we believe continuous improvement is important because it allows software to remain best practice in terms of design and efficiency and allows design teams to respond to changes in the field as required. 
+<img src="src/images/DoubleDiamond.png" alt="Double diamond" border="1" /> 
 
-- Production incidents over time
-    - Software might deliver on User stories but be too buggy for people to feel comfortable using. Therefore, production incidents over time, particularly if they recur, are an important metric that seem to be often overlooked. 
+Source: https://uxdesign.cc/how-to-fuck-up-the-design-thinking-process-and-make-it-right-dc2cb7a00dca
 
-    ADD TWO
+### User sentiment
+
+The second sentiment from the double diamond, 'Design things right', relies on user feedback. As a result, we believe this is also a key criteria when evaluating the quality of software. After all, what's the point of well-designed software if nobody will use it? 
+
+### Appropriate balance of the 'software trifecta'
+
+As the saying goes, software can be fast, cheap and high quality, but cannot be all three. You have to pick two. Appropriate software development takes the requirements of the project into account and finds a balance between Quality, Cost and Development Speed, as represented in the graphic below.
+
+In our case we were forced to sacrifice some quality to achieve MVP within a limited amount of time.
+
+*Software trifecta*
+
+<img src="src/images/trifecta.jpg" height=450 alt="Software Trifecta" border="1" />
+
+### Continuous improvement
+
+Unless it is able to be used over a reasonable life cycle, software may not be worth the cost in time and energy to develop it. Accordingly, we believe continuous improvement is important because it allows software to remain best practice in terms of design and efficiency and allows design teams to respond to changes in the field as required. 
+
+### Production incidents over time
+
+Software might deliver on User stories but be too buggy for people to feel comfortable using. Therefore, production incidents over time, particularly if they recur, are an important metric that seem to be often overlooked. 
+
+### Comprehensive testing
+
+Any software application needs a comprehensive suite of tests to ensure code quality over time. Test suites allow for code to be tested before critical deployments to make sure there are no breaking changes, are used to pinpoint the exact location of bugs and failed software, are used to test and prepare for unexpected user behaviour, and are often used as a part of the development process itself (in mathods like Test Driven Development) as a way to enforce code quality. 
 
 ## b) What libraries are being used in the app and why?
 
-A number of libraries are used in the app. Outside of any assessment requirements, reasons for their use are summarised in the table below and expanded on in the sections following. 
-
-*Table: Summary of libraries used and reasons for use*
-
-|   Library used:	|   React	    |  Express 	|   Mocha	| Jest |    Joi	| Sinon? | Supertest | 
-|---	|---	|---	|---	|---	|--- |--- |---
-|   Reasons:	|   uses virtual DOM	|   	cc |   	|   	|   |   |   |
-|   	        |   component-based 	|   	|   	|   	|   |   |   |
-|   	        |   |	|   	|   	|   	|   |   |   |
+A number of libraries are used in the app. Outside of any assessment requirements, reasons for their use are expanded on in the sections following. 
 
 ### React
 For Javascript-based apps, manipulating data in the browser DOM still often creates performance issues. React has attempted to resolve this by using a virtual DOM, which is a DOM stored in memory that allows an algorithm in React to compare the DOMs and calculate the most efficient way to store the changes required. This leads to the shortest possible time needed for read/write and is the primary reason for React's high performance.  
@@ -794,16 +890,16 @@ React is also component-based, allowing us to maintain a high level of consisten
 
 In addition to being the software choice mandated by the rubric, React was an obvious choice to pair with an Express API backend for this project, as it is fast, flexible, and allows us to easily manage the browser DOM and UI using the tools provided by the React framework, all written in the same (Javascript) software language.
 
-#### Express
+### Express
 Express is a Javascript framework built on top of Node.js that allows us to build a server and/or and API.　In this case the Express server responds to HTTP requests from the React Client, retreives data or manipulates data in the MongoDB Database and serves responses to back to the Client. Express is the most popular option for projects that want to build their own server in Javascript. 
 
 
-#### Mocha / Chai / Supertest
+### Mocha / Chai / Supertest
 Mocha is the framework we chose to test our backend API and database. We originally wrote tests in Jest, but found that because Jest was written specifically for React, there are some potential risks associated with using Jest for other frameworks. The MongoDB docs specifically warn against using Jest and suggest Mocha / Chai instead. 
 
 Mocha is a popular testing language for Javascript, and when paired with Chai provides comprehensive unit testing and integration testing. We used this pair to test the behaviour of our Mongoose Models and controller functions. Supertest allowed us to test the behaviour of our API, and we used it to confirm that our endpoints were returning the correct status responses to HTTP requests, and appropriate errors when requests lack the right credentials for authorization.
 
-#### Jest / Enzyme
+### Jest / Enzyme
 Jest & Enzyme, like Mocha & Chai, are popular testing frameworks used to test Javascript applications, and were built specifically for testing React applications. They provide the same functionality, with some additional functionality (like Snapshots) that allow testing for React-specific features.
 
 ## c) A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
@@ -828,9 +924,12 @@ Source of data: https://www.urbanemu.com/the-impact-of-user-experience-today-and
 
 ## d) Within your own project what knowledge or skills were required to complete your project, and overcome challenges?
 
-Within our own project, we needed a combination of technical skills, domain knowledge and soft skills. 
+Within our own project, we needed a combination of technical skills, domain knowledge and interpersonal skills. 
 
 ### Technical skills
+
+There were numerous technical skills that were important to be able to complete the project. These are listed below. 
+
 - Programming using MERN stack
 - Testing
   - Unit
@@ -844,21 +943,21 @@ Within our own project, we needed a combination of technical skills, domain know
 
 ### Domain knowledge
 
-We required knowledge of the following areas to effectively develop the web app
+We required knowledge of the following areas to effectively develop the web app.
 - project management 
 - Agile methodology (Scrum and Kanban)
 - Object-oriented programming concepts
 - coding conventions
 - file organisation
-- UX.
+- UX
 
 ### Interpersonal skills
 
 Communication played a huge role throughout the project. As a team, we communicated throughout the day every day and re-prioritised tasks as required. This allowed us to develop quickly by leveraging each other's strengths and to catch misunderstandings early. 
 
-Other interpersonal skills that were important were problem solving, decision making, negotation, active listening and dependability. 
+Other interpersonal skills that were important were problem solving, decision making, negotation, active listening and dependability. Without all of these, the project would have suffered in terms of how complete it was and how effectively it was developed.
 
-## e) Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
+## e) Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature.
 
 ### Evaluation of effectiveness 
 
@@ -870,6 +969,9 @@ Another example is the way that the group worked hard to understand all parts of
 
 ### Future suggestions for improvement
 
+In future, making a much smaller MVP will be something to keep in mind. It is better to overdeliver than underdeliver in our view, and it didn't feel good to be rushed to fit in all functionalities and have good UX.
+
+Keeping a list of shared naming conventions visible from the early stages of the project would also be helpful. This would help prevent having to restructure folders of components or heavily edit functions. 
 
 # Presentation
 
@@ -886,7 +988,18 @@ https://docs.google.com/presentation/d/1gBbQHLwReQomkoAs8Bms1swxf_7q8jQ7G-fR7pJU
 
 # Close of project
 
+## Client satisfaction survey
+
 We created a survey to collect feedback and measure client satisfaction. This is shared as part of our handover process. 
 
 Survey link: https://gwennywarnick.typeform.com/to/j6nfMn
 
+*Screenshot of survey landing page*
+
+<img src="src/images/Survey.png" alt="Screenshot of survey home page" border="1" />
+
+## End of project handover
+
+We spent time at the end of the project preparing our assessment for submission and thanking each other for our work. We were proud of each other and ourselves for collaborating the way that we did. 
+
+<img src="src/images/IMG_5569.jpg" alt="Group image at end of project" border="1" />
