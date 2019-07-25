@@ -18,7 +18,6 @@ class ProgramDashboard extends React.Component {
   
   componentDidMount = async () => {
     
-    // console.log(this.props.program)
     
     // get the program id first
     // const program = this.props.currentUser
@@ -35,11 +34,9 @@ class ProgramDashboard extends React.Component {
     // extracting program id using axios
     // const data = await axios.get(`http://localhost:5000/user/program/${id}`, {headers: { token: token }})
     // getting the other id to be able to get projects data
-    // console.log(data)
     
     // delete this after review with group
     // fetching one project
-    // console.log(data.data.projects)
     // const projectId = data.data.projects[0]
     // console.log(projectId)
     // const response = await axios.get(`http://localhost:5000/user/project/${projectId}`, {headers: { token: token }})
@@ -59,7 +56,6 @@ class ProgramDashboard extends React.Component {
         projectFour: response.data.projects[3]     
       })
     } catch(err) {
-      console.log(err.message);
       this.setState({ error: {
         message: 'Could not contact the server',
         status: 500
@@ -69,14 +65,7 @@ class ProgramDashboard extends React.Component {
 }
 
 render() {
-  console.log(this.state)
   const { projectOne, projectTwo, projectThree, projectFour} = this.state
-  console.log(projectOne)
-  console.log(projectTwo)
-  console.log(projectThree)
-  console.log(projectFour)
-  
-  
   
   if (!localStorage.token) {
     return <Redirect to="/login" />

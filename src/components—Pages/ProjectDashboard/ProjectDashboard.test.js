@@ -1,10 +1,10 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
-import LandingPageDashboard from "./LandingPageDashboard"
+import ProjectDashboard from "./ProjectDashboard";
 
 it('renders correctly', () => {
     const wrapper = shallow(
-        <LandingPageDashboard />
+        <ProjectDashboard />
     );
     expect(wrapper).toMatchSnapshot();
 });

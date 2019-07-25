@@ -15,7 +15,7 @@ import App from './App';
 //     //.simulate('change'), {target: {name: 'username', value: 'xxx'}});
 
 //     expect(wrapper.state('username')).toEqual('xxx');
-
+//     expect(element.length).toEqual(1);
 // })
 
 it('renders correctly', () => {

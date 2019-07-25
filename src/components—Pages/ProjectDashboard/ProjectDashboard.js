@@ -13,17 +13,14 @@ class ProjectDashboard extends React.Component {
   }
 
   componentDidMount = async () => {
-    console.log('component did mount')
     // getting the id from its URL
     const id = this.props.match.params.id
-    console.log(`project-dashboard url ${id}`)
 
     // need token id for authorisation
     const token = localStorage.token
 
     // getting project data
     // const response = await axios.get(`http://localhost:5000/user/project/${id}`, {headers: { token: token }})
-    // console.log(response)
     try {
       const dataOne = await axios.get(process.env.REACT_APP_API_URL + `/user/project/${id}`, {headers: { token: token }})
       // console.log(dataOne.data._id)
@@ -34,7 +31,6 @@ class ProjectDashboard extends React.Component {
         resourceData: dataTwo.data,
         projectId: dataOne.data._id
       })
-      // console.log(this.state);
     } catch(err) {
       console.log(err.message);
       this.setState({ error: {
