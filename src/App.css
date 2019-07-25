@@ -16,40 +16,23 @@ form #email, #password {
 }
 
 .App {
-  text-align: center;
-  /* background-color: aqua; */
   width: 100vw;
   height: 100vh; 
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+
+input[type="email"]
+{
+    font-size: 1.25em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="password"]
+{
+    font-size: 1.25em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
 }
 
 :root {
@@ -65,16 +48,10 @@ form #email, #password {
 
 
 /* Remove the react LINK underlines */
+
 a {
   text-decoration: none;
 }
-
-/* Desktops and laptops */
-/* @media only screen and (min-width : 1224px) {
-  .login-background {
-    
-  }
-}  */
 
 
 

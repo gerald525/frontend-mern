@@ -33,7 +33,7 @@
 
 .profile-data {
   height: 2em;
-  border: 1px dotted var(--grey);
+  border: 1px dashed var(--grey);
   width: 99.5%; 
   color: var(--grey);
   display: flex;
@@ -49,7 +49,7 @@
   color: var(--white);
   font-size: 1.25em;
   font-weight: 700;
-  /* width: 99.5%; */
+  width: 99.5%;
   font-family: 'Open Sans', sans-serif;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -62,11 +62,13 @@
   font-size: 0.6em;
 }
 
+.profile-contents p {
+  color: var(--grey)
+}
 
-/* mobile responsive media queries */
-/* 350px wide or Less */
-@media only screen and (max-width: 350px) {
-  .profile-password {
-    font-size: 0.5em
+@media only screen and (min-width : 700px) {
+  .profile-contents {
+    width: 55%
   }
 }
+

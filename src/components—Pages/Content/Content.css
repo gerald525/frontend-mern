@@ -14,9 +14,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  /* border: 1px solid black; */
   color: var(--grey);
-
 }
 
 .mobile-resource-content p {
@@ -68,7 +66,7 @@
 
 .up-next-link {
   margin-top: 0.125em;
-  width: 98%;
+  width: 99.5%;
   height: 2.5em;
   border: 3px solid var(--green);
   display: flex;
@@ -94,6 +92,7 @@
 
 .resource-green-box span {
   font-size: 2em;
+  margin-left: 1em;
 }
 
 .mobile-project-scroll-box2 {
@@ -112,3 +111,46 @@
   margin: 0.5em 0.25em 0.125em 0.375em 
 }
 
+.mobile-project-resource-data-link2 {
+  width: 92%;
+  height: 2.75em;
+  border: 0.125px solid var(--grey);
+  margin: 0.375em 0 0.375em 0.25em;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: space-between;
+}
+
+.mobile-project-resource-data-link2 p {
+  font-weight: 400;
+  font-size: 0.75em;
+  width: 17em;
+  height: 3em;
+  margin-left: 1em;
+}
+
+.mobile-project-resource-data-link2 span {
+  margin-right: 1em;
+  font-size: 1.5em
+}
+
+@media only screen and (min-width : 700px) {
+  .resource-green-box span {
+    margin-left: 40%
+  }
+  
+  .resource-green-box {
+    width: 81%;
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width : 400px) {
+  .mobile-project-resource-data-link2 {
+    height: 3.25em;
+    padding: 0.125em;
+    font-size: 1em;
+  }
+
+}

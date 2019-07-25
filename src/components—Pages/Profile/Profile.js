@@ -11,6 +11,7 @@ const Profile = (props) => {
       return (
         <div className="profile-container">
           <div className="profile-contents">
+            <Link to="/landing-page-dashboard"><p>Back</p></Link>
             <h1>Profile</h1>
             <p>Email</p>
             <div className="profile-data">

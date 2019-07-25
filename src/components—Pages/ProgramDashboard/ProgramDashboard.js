@@ -17,38 +17,13 @@ class ProgramDashboard extends React.Component {
   
   
   componentDidMount = async () => {
-    
-    
-    // get the program id first
-    // const program = this.props.currentUser
-    // console.log(program)
-    // const id = this.props.program
-    // console.log(`program id: ${id}`)
     // getting the id from its URL
     const id = this.props.match.params.program
-    console.log(id)
     // need token id for authorisation
     const token = localStorage.token
-    
-    // delete this after review with group
-    // extracting program id using axios
-    // const data = await axios.get(`http://localhost:5000/user/program/${id}`, {headers: { token: token }})
-    // getting the other id to be able to get projects data
-    
-    // delete this after review with group
-    // fetching one project
-    // const projectId = data.data.projects[0]
-    // console.log(projectId)
-    // const response = await axios.get(`http://localhost:5000/user/project/${projectId}`, {headers: { token: token }})
-    // console.log(response)
-    
     // fetching all projects
     try {
       const response = await axios.get(process.env.REACT_APP_API_URL + `/user/program/${id}/projects`, {headers: { token: token }})
-      // getting correct data
-      // console.log(response)
-      // console.log(response.data.projects)
-      // console.log(response.data.projects[0])
       this.setState({
         projectOne: response.data.projects[0],
         projectTwo: response.data.projects[1],
@@ -71,10 +46,6 @@ render() {
     return <Redirect to="/login" />
   } else {
     return (
-      
-      // <div>
-      //   {this.state.projectOne ? <p>{this.state.projectOne.name}</p> : null }
-      // </div>
       <div className="mobile-programDashboard-container">
       
       <div className="mobile-programDashboard-contents">
@@ -147,53 +118,6 @@ render() {
               </div>
               )
             }
-            // return (
-            
-            // <div>
-            //   {this.state.projectOne ? <p>{this.state.projectOne.name}</p> : null }
-            // </div>
-            //   <div className="mobile-programDashboard-container">
-            
-            //       <div className="mobile-programDashboard-contents">
-            //         <div className="mobile-programDashboard-project-one">
-            //           <p>Start Date:</p>
-            //           <p>Due Date:</p>
-            //           <h2>Project 1</h2>
-            //           <h2>Hello world</h2>
-            //           <div className="mobile-programDashboard-status-box">
-            //             <p>Not Completed</p>
-            //           </div>
-            //         </div>
-            //         <div className="mobile-programDashboard-project-two">
-            //           <p>Start Date:</p>
-            //           <p>Due Date:</p>
-            //           <h2>Project 2</h2>
-            //           <h2>Hello world</h2>
-            //           <div className="mobile-programDashboard-status-box">
-            //             <p>Not Completed</p>
-            //           </div>
-            //         </div>
-            //         <div className="mobile-programDashboard-project-three">
-            //           <p>Start Date:</p>
-            //           <p>Due Date:</p>
-            //           <h2>Project 3</h2>
-            //           <h2>Hello world</h2>
-            //           <div className="mobile-programDashboard-status-box">
-            //             <p>Not Completed</p>
-            //           </div>
-            //         </div>
-            //         <div className="mobile-programDashboard-project-four">
-            //           <p>Start Date:</p>
-            //           <p>Due Date:</p>
-            //           <h2>Project 4</h2>
-            //           <h2>Hello world</h2>
-            //           <div className="mobile-programDashboard-status-box">
-            //             <p>Not Completed</p>
-            //           </div>
-            //         </div>
-            //       </div>
-            //   </div>
-            // )
           }
           
         }

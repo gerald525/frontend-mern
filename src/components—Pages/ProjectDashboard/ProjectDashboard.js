@@ -15,17 +15,12 @@ class ProjectDashboard extends React.Component {
   componentDidMount = async () => {
     // getting the id from its URL
     const id = this.props.match.params.id
-
     // need token id for authorisation
     const token = localStorage.token
 
-    // getting project data
-    // const response = await axios.get(`http://localhost:5000/user/project/${id}`, {headers: { token: token }})
     try {
       const dataOne = await axios.get(process.env.REACT_APP_API_URL + `/user/project/${id}`, {headers: { token: token }})
-      // console.log(dataOne.data._id)
       const dataTwo = await axios.get(process.env.REACT_APP_API_URL + `/user/project/${id}/resources`, {headers: { token: token }})
-      // console.log(dataTwo.data.resources)
       this.setState({
         projectData: dataOne.data,
         resourceData: dataTwo.data,
@@ -42,16 +37,12 @@ class ProjectDashboard extends React.Component {
 
   }
   
-  
   render() {
     
     if (!localStorage.token) {
       return <Redirect to="/login" />
     } else {
       const { projectData, resourceData, projectId } = this.state
-      console.log(projectData);
-      console.log(resourceData)
-      console.log(projectId)
       return (
         <div className="mobile-project-dashboard-container">
           <div className="mobile-project-dashboard-contents">
@@ -72,10 +63,8 @@ class ProjectDashboard extends React.Component {
                       state: { resourceData, projectId }
                     }}>
                       <p>{index + 1}. {item.name}</p>
-                      <button>
-                        {resourceData.resources.completed ? '✅' : '⬜️' }
-                      </button>
                     </Link>
+                    { item.completed ? <span role="img" aria-label="ticked box">✅</span> : <span role="img" aria-label="not ticked box"> ◻️</span> }
                   </div>      
                 ))}
               </div>

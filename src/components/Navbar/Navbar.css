@@ -1,14 +1,12 @@
 .mobile-navbar {
   height: 60px;
   width: 100vw;
-  /* border: 1px solid black; */
   display: flex;
   background: 
   linear-gradient(
     rgba(1, 99, 129, 0.88), 
     rgba(1, 99, 129, 0.88)
   ),
-  /* bottom, image */
   url(../../images/MI_Img_resized.jpg);
   background-position: center;
   background-size: cover;
@@ -19,7 +17,6 @@
 .mobile-contents {
   height: 100%;
   width: 90%;
-  /* border: 1px solid white; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,7 +26,6 @@
 .mobile-link-logo {
   height: 60px;
   width: 70px;
-  /* border: 1px solid white; */
   background-image: url("../../images/MIAcademy_logo-_white.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -39,7 +35,7 @@
 .logout-box {
   height: 40px;
   width: 90px;
-  background-color: white;
+  background-color: var(--white);
   color: #016381;
   font-weight: 400;
   font-size: 1em;
