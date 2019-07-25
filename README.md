@@ -374,20 +374,38 @@ As we developed Epics, User stories and estimated Story points, we recorded deta
 
 ### Estimating timings
 
-We estimated times in terms of days (e.g. half a day or 2 days' work). Then we added deadlines to cards, as shown below. 
+We estimated times for features related to User stories in terms of days (e.g. half a day or 2 days' work). Then we added deadlines to cards, as shown below. 
 
-*Trello board, Day 1*
+*Evidence of timings, deadlines in green labels on Trello cards*
+
+<img src="src/images/Trello1.png" alt="screenshot of Trello board" height=450 border="1" />
+
+*Trello board, start of project*
+
+<img src="src/images/Trello2.png" alt="screenshot of Trello board" border="1" />
+
+*Trello board, middle of Week 1*
+
+<img src="src/images/Trello4.png" alt="screenshot of Trello board" border="1" />
+<img src="src/images/Trello5.png" alt="screenshot of Trello board" border="1" />
 
 *Trello board, end of Week 1*
 
+<img src="src/images/Trello3.png" alt="screenshot of Trello board" border="1" />
 *Trello borad, end of Week 2*
 
+*Trello board, mid-project*
 
+<img src="src/images/Trello6.png" alt="screenshot of Trello board" border="1" />
 
-We also kept documents we would need to refer to again here, including
-- MI Academy documents (e.g. branding guide, logos)
-- Rubric for Coder Academy assessment
-- README requirements.
+*Trello board, start of last day*
+
+<img src="src/images/TrelloFinal.png" alt="screenshot of Trello board" border="1" />
+
+We also kept information we would need to refer to again here. These reference documents and Trello cards consisted of
+- MI Academy documents (e.g. branding guide, logos)—CLIENT INFO/BRANDING column
+- Screenshots of eßach separate rubric criterion for Coder Academy assessment—RUBRIC column
+- README requirements—README column.
 
 ### Agile Epics
 
@@ -407,8 +425,8 @@ Note: Tie to user stories
 Rubric: Flawless code flow control: documented test coverage/successful results for all user stories, including corner cases
 
 ### Unit testing
-We did unit tests for functions and components in the Learner and Manager user stories, which were the user stories that made up MVP.
 
+We did unit tests for functions and components in the Learner and Manager user stories, which were the user stories that made up MVP.
 
 ### Integration testing
 
@@ -828,9 +846,12 @@ Source of data: https://www.urbanemu.com/the-impact-of-user-experience-today-and
 
 ## d) Within your own project what knowledge or skills were required to complete your project, and overcome challenges?
 
-Within our own project, we needed a combination of technical skills, domain knowledge and soft skills. 
+Within our own project, we needed a combination of technical skills, domain knowledge and interpersonal skills. 
 
 ### Technical skills
+
+There were numerous technical skills that were important to be able to complete the project. These are listed below. 
+
 - Programming using MERN stack
 - Testing
   - Unit
@@ -856,9 +877,9 @@ We required knowledge of the following areas to effectively develop the web app
 
 Communication played a huge role throughout the project. As a team, we communicated throughout the day every day and re-prioritised tasks as required. This allowed us to develop quickly by leveraging each other's strengths and to catch misunderstandings early. 
 
-Other interpersonal skills that were important were problem solving, decision making, negotation, active listening and dependability. 
+Other interpersonal skills that were important were problem solving, decision making, negotation, active listening and dependability. Without all of these, the project would have suffered in terms of how complete it was and how effectively it was developed.
 
-## e) Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
+## e) Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature.
 
 ### Evaluation of effectiveness 
 
@@ -870,6 +891,9 @@ Another example is the way that the group worked hard to understand all parts of
 
 ### Future suggestions for improvement
 
+In future, making a much smaller MVP will be something to keep in mind. It is better to overdeliver than underdeliver in our view, and it didn't feel good to be rushed to fit in all functionalities and have good UX.
+
+Keeping a list of shared naming conventions visible from the early stages of the project would also be helpful. This would help prevent having to restructure folders of components or heavily edit functions. 
 
 # Presentation
 
