@@ -293,7 +293,6 @@ We proposed an LMS as a solution that could deal with all of these problems. An 
 - facilitate clients revising content they learn in workshops
 - measure and report on their clients' progress in terms of content covered.
 
-
 ## Functionality & features
 
 The Minimum Viable Product (MVP) for the project was clarified early on in the project as per the slides below. MVP included three logins for
@@ -336,20 +335,33 @@ Our software is separated into two main sections and broadly follows separation 
 
 ## Tech stack
 We used the MERN Stack as the core of our application. The full list of languages & Frameworks used is:
-- MongoDB
-- Express.js
-- React.js
-- Node.js
-- 
-
-### Deployment 
-- netlify.com
-- now.sh
-
+- MongoDB database with Joi library for Model validation
+- Express.js and Node.js server
+- Bcrypt and JSON Webtokens for user authentication and authorization
+- HTML, CSS & React.js with BrowserRouter for front-end UI and Client-side logic
+- Jest, Mocha, Enzyme, Chai, and Supertest for testing
+- now.sh used with Netlify for deployment
 
 ### Code style
 
-Check rubric: Utilises highly sophisticated functions, demonstrating an exceptional level of understanding; Advanced functional programming concepts including Immediately-Invoked Function Expression (IIFE), etc
+The intention with this application was to keep it as simple as possible, keeping in mind usablility, readability, and extensibility with solid documentation so that future development would not rely on the current team.
+
+#### Application Usability
+- We wanted the UI to be very simple, intuitive, and fast for the user.
+- We wanted to minimize the amount of 'clicks' required to navigate the app
+- We wanted relavent information to be immediately available and not hidden inside menus
+- We wanted to the UI to display personalized information to the user, including greeting the user by name and showing their own program information and progress
+- We wanted to minimize the number of database calls and cache information where possible to provide a seamless, lightning-fast user experience
+
+
+#### Code Readability & Extensibility
+- We followed DRY principles as much as possible. Repeated and shared code has been extracted into functions, for example there are multiple methods that create a User in the database, therefore this code has been turned into its own method. 
+- We modularized our code as much as possible and created a folder structure to make the code easy to navigate. It should be relatively simple to understand this structure to someone coming to the code for the first time, or ourselves in six months time. 
+- Frontend code contains folders for each component, their styles and tests
+- Backend code has extracted the logic for the Server / Express App, config, routes, controllers & business logic, utility methods and tests
+- We have provided tests for happy path as well as a number of unhappy path tests for backend that confirm authorization, routes, and model validations are working as expected. 
+- Tests and file structure should provide future development teams with confidence should they decide to refactor or extend the application.
+- We have attempted to be logical and declarative with directory, file, variable and method naming 
 
 # Design process
 
@@ -357,8 +369,24 @@ Check rubric: Utilises highly sophisticated functions, demonstrating an exceptio
 
 Github 
 
-Note: mention how we used multiple feature branches or didn't need them with commits from all team members
-screenshots
+We used Git and GitHub to manage source control, versioning and collaboration on our project. 
+
+We set up two separate repositories, for frontend and backend code, with all members set up as collaborators. 
+
+We created and agreed upon rules of conduct to ensure proper version control, avoid bugs and merge conflicts, enforce proper 
+reviews and therefore try to maximise code quality and productivity. 
+
+1. Each member of the team would have administrator access to the repositories, but would only push from their own branches, never from master.
+2. Code review is required but at least one member of the team for a pull request to be merged with the master branch. This can be overidden with Administrator priveleges but was highly discouraged. 
+3. Only branches that are up-to-date with master can be merged.
+4. We decided that given the limited feature complexity of our product initially, it wasn't necessary to use feature branches, although we did in some cases.
+
+> Screenshot of GitHub rules created for our repositories:
+
+<img src="src/images/GitHub_branch_rules.png" alt="GitHub Branch Rules" border="1" />
+
+> Screenshot of feature branch and other branch activity:
+<img src="src/images/GitHub_feature_branch.png" alt="GitHub Feature Branch" border="1" />
 
 ## Project management
 
@@ -381,7 +409,6 @@ We estimated times in terms of days (e.g. half a day or 2 days' work). Then we a
 *Trello board, end of Week 1*
 
 *Trello borad, end of Week 2*
-
 
 
 We also kept documents we would need to refer to again here, including
