@@ -181,7 +181,7 @@ You will see the server load in terminal, and if there are no errors you will be
 ### Seeding 
 To get the application working on your local machine you will need to seed data in the database. To use the seeds provided, you will need to make HTTP POST requests to the seed endpoints using your preferred HTTP client (Postman is a popular example: https://www.getpostman.com/downloads/)
 
-Authorization is required to seed the database. To do this, add send POST requests with the key/value pair in the headers.
+Authorization is required to seed the database. To do this, send POST requests authorized with the seedPassword in the header:
 
  `key: 'password', 'value: '{your seedPassword}'` 
 
@@ -190,11 +190,13 @@ http://localhost:5000/admin/seed
 
 For deployment to MongoDB Atlas and other service providers, the following POST endpoints are provided if you run into Timeout issues. These endpoints should be hit in the following order:
 
-http://localhost:5000/admin/seed/clients
-http://localhost:5000/admin/seed/programs
-http://localhost:5000/admin/seed/projects
-http://localhost:5000/admin/seed/resources
-http://localhost:5000/admin/seed/users
+1) http://localhost:5000/admin/seed/clients
+2) http://localhost:5000/admin/seed/programs
+3) http://localhost:5000/admin/seed/projects
+4) http://localhost:5000/admin/seed/resources
+5) http://localhost:5000/admin/seed/users
+
+## Deployment
 
 To deploy, we used the following distributed set up for the front and back end of the app. 
 
@@ -209,8 +211,6 @@ Netlify allows for free, continuous deployment integrated with Github, so we use
 >Now
 
 For server-side of the application, we deployed using now.sh, which allows us to control environmental variables in a now.json file. Being designed with Developer Experience (DX) in mind, we also felt it was a good choice since a developer would likely be doing further work on the site in future after handover. 
-
-## Troubleshooting
 
 
 ## Related links
@@ -294,7 +294,6 @@ We proposed an LMS as a solution that could deal with all of these problems. An 
 
 ## Functionality & features
 
-## Architecture
 The Minimum Viable Product (MVP) for the project was clarified early on in the project as per the slides below. MVP included three logins for
 - admin
 - manager
@@ -322,7 +321,7 @@ The app's core functionalities were for users to be able to
   - each team member's progress in terms of completed content
   - the collective progress of the team e.g. 78% complete for a project.
 
-## Tech stack
+## Architecture
 
 Our software is separated into two main sections and broadly follows separation of concerns and an MVC model. 
 
@@ -334,25 +333,17 @@ Our software is separated into two main sections and broadly follows separation 
 - React.js Client UI, which provides front-end pages and routes, interacts with the backend API, retreives and stores user authentication tokens, tracks current user information and manages User Interface and display.
 
 ## Tech stack
-
-
-## Design process
-The app was built using MERN stack. 
-
-### Front-end 
-React
-
-### Back-end
-Express server running on Node.js
-
-### Database
-MongoDB
+We used the MERN Stack as the core of our application. The full list of languages & Frameworks used is:
+- MongoDB
+- Express.js
+- React.js
+- Node.js
+- 
 
 ### Deployment 
 - netlify.com
 - now.sh
 
-### Architecture
 
 ### Code style
 
@@ -415,7 +406,6 @@ Rubric: Flawless code flow control: documented test coverage/successful results 
 
 ### Unit testing
 We did unit tests for functions and components in the Learner and Manager user stories, which were the user stories that made up MVP.
-
 
 
 ### Integration testing
@@ -813,16 +803,6 @@ Mocha is a popular testing language for Javascript, and when paired with Chai pr
 
 #### Jest / Enzyme
 Jest & Enzyme, like Mocha & Chai, are popular testing frameworks used to test Javascript applications, and were built specifically for testing React applications. They provide the same functionality, with some additional functionality (like Snapshots) that allow testing for React-specific features.
-
-### Express
-
-### Mocha
-
-### Jest
-
-### Sinon?
-
-### Supertest
 
 ## c) A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
 
