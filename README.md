@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Overview](#overview)
   - [Who is behind this?](#who-is-behind-this)
   - [What is in this README?](#what-is-in-this-readme)
@@ -91,8 +92,9 @@
   - [e) Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?](#e-evaluate-how-effective-your-knowledge-and-skills-were-this-project-using-examples-and-suggest-changes-or-improvements-for-future-projects-of-a-similar-nature)
     - [Evaluation of effectiveness](#evaluation-of-effectiveness)
     - [Future suggestions for improvement](#future-suggestions-for-improvement)
-  - [Presentation](#presentation)
-    - [Slide deck](#slide-deck)
+- [Presentation](#presentation)
+  - [Slide deck](#slide-deck)
+- [Close of project](#close-of-project)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -869,15 +871,22 @@ Another example is the way that the group worked hard to understand all parts of
 ### Future suggestions for improvement
 
 
-## Presentation
+# Presentation
 
 As part of our assessment, we prepared a presentation covering
 - our design and decision-making process
 - a review of the app development process
 - a live demo of the app and its features.
 
-### Slide deck
+## Slide deck
 https://docs.google.com/presentation/d/1gBbQHLwReQomkoAs8Bms1swxf_7q8jQ7G-fR7pJU8gg/edit?usp=sharing
 
 *Screenshot of slide deck*
 <img src="src/images/MERN_Slides.png" alt="Screenshot of slide deck for group presentation" border="1">
+
+# Close of project
+
+We created a survey to collect feedback and measure client satisfaction. This is shared as part of our handover process. 
+
+Survey link: https://gwennywarnick.typeform.com/to/j6nfMn
+
