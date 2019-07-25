@@ -15,7 +15,6 @@ class ProgramDashboard extends React.Component {
     }
   }
   
-  
   componentDidMount = async () => {
     // getting the id from its URL
     const id = this.props.match.params.program
@@ -39,9 +38,7 @@ class ProgramDashboard extends React.Component {
   }
 }
 
-render() {
-  const { projectOne, projectTwo, projectThree, projectFour} = this.state
-  
+render() {  
   if (!localStorage.token) {
     return <Redirect to="/login" />
   } else {

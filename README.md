@@ -474,9 +474,6 @@ Note: refer to Excellent use of task delegation with Kanban board of tickets ass
 
 Our test suite covers the happy path for both frontend and backend code. 
 
-Note: Tie to user stories 
-Rubric: Flawless code flow control: documented test coverage/successful results for all user stories, including corner cases
-
 *Backend test suite*
 
 ![Backend test suite](src/images/tests.png)
@@ -487,39 +484,37 @@ Rubric: Flawless code flow control: documented test coverage/successful results 
 
 ### Unit testing
 
-We attempted to cover all our methods and api routes with unit tests with unit tests. We used happy bath tests and unhappy path tests to ensure models were validating correctly and routes were being accessed with the correct authorization. We developed a model that can be replicated across our codebase but ran out of time to deploy it fully.
-
+We attempted to cover all our methods and api routes with unit tests for our user stories. We used happy path tests and unhappy path tests to ensure models were validating correctly and routes were being accessed with the correct authorization. We developed a model that can be replicated across our codebase but ran out of time to deploy it fully.
 
 ### Integration testing
 
-The majority of our integration testing was done using Postman to test HTTP requests and endpoints were returning the correct data, as well as writing integration tests and including them in our test suite.
+The majority of our integration testing was done using Postman to test HTTP requests and to make sure endpoints were returning the correct data. We also wrote integration tests and included them in our test suite.
 
 ### E2E testing
 
-We chose to do integration and E2E testing manually rather than take the time to install and configure a framework like Cypress. It would be appropriate to deploye Cypress should the project progress and require more comprehensive automated test coverage. 
+We chose to do integration and E2E testing manually rather than take the time to install and configure a framework like Cypress. It would be appropriate to deploy Cypress should the project progress and require more comprehensive automated test coverage. 
 
-Our most common methodology was to run both the front and backend code in unison and mimic user behaviour to ensure the application worked as expected. Any bugs we discovered that weren't triggering failed unit tests we would write tests for, or in cases where we had tests that weren't failing we would tweak the tests to ensure we had better coverage.
-
+Our most common methodology was to run both the front and backend code in unison and mimic user behaviour to ensure the application worked as expected. For any bugs we discovered that weren't triggering failed unit tests, we would write tests, or in cases where we had tests that weren't failing we would tweak the tests to ensure we had better coverage.
 
 ### Usability testing
 
-Due to the time frame, we user tested primarily using each other's devices. Below are screenshots of the login page on three different devices—iPhone 6, Android, MacBook Pro. Using our devices allowed us to test out the usability as well as notice gaps in code, for example the submit button missing in the iPhone view below. 
+Due to the tight time frame, we user tested usability primarily using each other's devices. Below are screenshots of the login page on three different devices—iPhone 6, Android, MacBook Pro. Using our devices allowed us to test out the usability as well as notice gaps in code, for example the submit button missing in the iPhone view below. 
 
-*iPhone 6 view*
+*Usability testing on iPhone 6*
 
 <img src="src/images/Mob1.png" alt="screenshot of login page on iPhone" border="1" />
 
-*Android view*
+*Usability testing on Android*
 
 <img src="src/images/Mob2.jpg" alt="screenshot of login page on iPhone" height=450 border="1" />
 
-*Macbook Pro view*
+*Usability testing on Macbook Pro*
 
 <img src="src/images/Testing1.png" alt="screenshot of login page on iPhone" border="1" />
 
 # User Stories
 
-We wrote user stories to help us plan and prioritise the development of the app's features. As is standard for Agile user stories, we formulated stories with the structure 'As a user I want to do x so I can y.'
+We wrote user stories to help us plan and prioritise the development of the app's features. As is standard for Agile user stories, we formulated stories with the structure 'As a user I want to do [action] so that I can [do/feel something].'
 
 ## Learner 
 
@@ -529,7 +524,7 @@ We wrote user stories to help us plan and prioritise the development of the app'
 3. filter & sort courses in the dashboard, so that I can view the most relevant. Details include:
     - unfinished courses
     - completed courses
-    - course progress (percentage, num modules)
+    - course progress (percentage, number of projects)
     - course start date / due date / completed date
     - recent courses
 4. view my Profile page and personalize my profile information so that I can have fun
