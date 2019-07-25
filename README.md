@@ -114,34 +114,89 @@ There is an overview of the planning and build details of a real-world MERN app 
 
 # Instructions
 
-To run this app, complete the following steps.
+A live version of this application can be found at https://mi-academy.netlify.com/.
 
-## Set up
-Your computer will require the following programs installed.
-- x
-- x
-- x
 
-## Configuration
+## Set up 
+To run this application locally on your computer, complete the following steps.
 
-Within your computer terminal, navigate to the directory where you want to install the application files and create a folder for the app. Navigate into the folder and run the following command to clone the files for the front-end of the app:
->git clone git@github.com:JoshTeperman/mern-project-frontend.git
+### Downloading the code:
+To download the code to your computer, navigate to the directory you want to use on your computer and install both repositories. You'll need to run the following code from the root of your directory: <br>
+Backend: `git clone https://github.com/JoshTeperman/mern-project-backend.git` <br>
+Frontend: `git clone https://github.com/JoshTeperman/mern-project-backend.git` 
 
-Next, navigate out of the front-end that was installed to your created folder for the app and run the following command to install the files for the back-end of the app:
+You should now have a folder structure that looks like this:
 
->git clone git@github.com:JoshTeperman/mern-project-backend.git
+Root Directory\
+-mern-project-backend/\
+-mern-project-frontend/
 
-In each of the folders (front-end and back-end), do the following:
+Alternatively, you can download the code directly to your hard-drive: \
+https://github.com/JoshTeperman/mern-project-backend/archive/master.zip\
+https://github.com/JoshTeperman/mern-project-frontend/archive/master.zip
 
-- Run 'npm install' (or 'yarn install') to install the dependencies.
-- Run npm start to start the server.
 
-In your browser, navigate to 'http://localhost:3000/' to view the website.
+### Back End Setup:
+To run the back end server, you will need to have Node.js installed on your machine. You can install Node at one of these websites: \
+https://docs.npmjs.com/downloading-and-installing-node-js-and-npm\
+https://nodejs.org/en/download/\
+... or if you have Homebrew installed run `brew install node` from console. 
 
-Login using the default Guest Account:
-> Username: 
+Once you have Node installed, navigate into your backend directory `cd mern-project-backend` and run `npm install` to install the project dependencies. 
 
-> Password:
+Next, create a new file named `.env` in your root directory and add the following, replacing the brackets `{}` with your own values:
+
+DB_URL=mongodb://localhost:27017/{database name} <br>
+JWT_SECRET={secret key} <br>
+seedPassword={seed password}
+
+`DB_URL` Should be the name you want to call your database. `JWT_SECRET` and `seedPassword` can be any random string.
+
+Next, run `mongod` in terminal to initialize the the MongoDB database. This will create a new database and run it locally on your machine. 
+
+You can now run `npm start` to run the express server and connect to the development database. If successful, you shold see the following logs in console:
+
+``` 
+listening on PORT 5000
+✅  Connected to MongoDB
+```
+
+### Front End Setup:
+Follow the same steps to install the front end dependencies:
+
+Navigate to the front end directory:
+
+`cd mern-project-front-end`<br>
+
+Install front end dependencies:
+
+`npm install`
+
+Start the front-end server:
+
+`npm start`
+
+You will see the server load in terminal, and if there are no errors you will be able to navigate to `http://localhost:3000/` in your web browser to view a live version of the website. 
+
+## Configuration for local deployment
+
+### Seeding 
+To get the application working on your local machine you will need to seed data in the database. To use the seeds provided, you will need to make HTTP POST requests to the seed endpoints using your preferred HTTP client (Postman is a popular example: https://www.getpostman.com/downloads/)
+
+Authorization is required to seed the database. To do this, send POST requests authorized with the seedPassword in the header:
+
+ `key: 'password', 'value: '{your seedPassword}'` 
+
+On your local machine, you should be able to make a POST request to:
+http://localhost:5000/admin/seed
+
+For deployment to MongoDB Atlas and other service providers, the following POST endpoints are provided if you run into Timeout issues. These endpoints should be hit in the following order:
+
+1) http://localhost:5000/admin/seed/clients
+2) http://localhost:5000/admin/seed/programs
+3) http://localhost:5000/admin/seed/projects
+4) http://localhost:5000/admin/seed/resources
+5) http://localhost:5000/admin/seed/users
 
 ## Deployment
 
@@ -159,9 +214,6 @@ Netlify allows for free, continuous deployment integrated with Github, so we use
 
 For server-side of the application, we deployed using now.sh, which allows us to control environmental variables in a now.json file. Being designed with Developer Experience (DX) in mind, we also felt it was a good choice since a developer would likely be doing further work on the site in future after handover. 
 
-## Troubleshooting
-
-For troubleshooting, we
 
 ## Related links
 
@@ -234,7 +286,6 @@ Finally, MI Academy would like to be best practice in terms of training. This wo
 - help clients stay focussed on their quarterly project goals
  - provide evidence of clients having learned the content successfully.
 
-
 ### Solution proposed
 
 We proposed an LMS as a solution that could deal with all of these problems. An LMS will allow MI Academy to 
@@ -272,24 +323,29 @@ The app's core functionalities were for users to be able to
   - each team member's progress in terms of completed content
   - the collective progress of the team e.g. 78% complete for a project.
 
+## Architecture
+
+Our software is separated into two main sections and broadly follows separation of concerns and an MVC model. 
+
+### Backend: Model (M) and Controller (C) 
+- Node.js API / server written with the Express.js module that routes Client HTTP requests, interacts with the database, handles data & model validation, stores and manages private keys and passwords, encrypts and decrypts user passwords and user tokens, and provides routing and other business logic.
+- Locally run instance of MongoDB Database for Development with a MongoDB Atlas cloud-based Database for Production. 
+
+### Frontend: View (V)
+- React.js Client UI, which provides front-end pages and routes, interacts with the backend API, retreives and stores user authentication tokens, tracks current user information and manages User Interface and display.
+
 ## Tech stack
-
-The app was built using MERN stack. 
-
-### Front-end 
-React
-
-### Back-end
-Express server running on Node.js
-
-### Database
-MongoDB
+We used the MERN Stack as the core of our application. The full list of languages & Frameworks used is:
+- MongoDB
+- Express.js
+- React.js
+- Node.js
+- 
 
 ### Deployment 
 - netlify.com
 - now.sh
 
-### Architecture
 
 ### Code style
 
@@ -352,7 +408,6 @@ Rubric: Flawless code flow control: documented test coverage/successful results 
 
 ### Unit testing
 We did unit tests for functions and components in the Learner and Manager user stories, which were the user stories that made up MVP.
-
 
 
 ### Integration testing
@@ -737,22 +792,19 @@ For Javascript-based apps, manipulating data in the browser DOM still often crea
 
 React is also component-based, allowing us to maintain a high level of consistency across the app's views and flexibility with how we choose to structure these views in terms of code file storage.
 
-### Joi
+In addition to being the software choice mandated by the rubric, React was an obvious choice to pair with an Express API backend for this project, as it is fast, flexible, and allows us to easily manage the browser DOM and UI using the tools provided by the React framework, all written in the same (Javascript) software language.
 
-We used Joi as opposed to a middleware like Express-validator because its built-in validation methods are easy to use. Secondly, it supports custom error messages. The schema also allows us to put the object inside our existing user model, for example, and is easy to read, clearly showing what we expect from each property. The screenshot below shows how clearly this appears.
+#### Express
+Express is a Javascript framework built on top of Node.js that allows us to build a server and/or and API.　In this case the Express server responds to HTTP requests from the React Client, retreives data or manipulates data in the MongoDB Database and serves responses to back to the Client. Express is the most popular option for projects that want to build their own server in Javascript. 
 
-*Screenshot of a Joi object in our app*
-<img src="src/images/MERN_Joi.png" alt="screenshot of object in Joi testing of app" height=200 border="1">
 
-### Express
+#### Mocha / Chai / Supertest
+Mocha is the framework we chose to test our backend API and database. We originally wrote tests in Jest, but found that because Jest was written specifically for React, there are some potential risks associated with using Jest for other frameworks. The MongoDB docs specifically warn against using Jest and suggest Mocha / Chai instead. 
 
-### Mocha
+Mocha is a popular testing language for Javascript, and when paired with Chai provides comprehensive unit testing and integration testing. We used this pair to test the behaviour of our Mongoose Models and controller functions. Supertest allowed us to test the behaviour of our API, and we used it to confirm that our endpoints were returning the correct status responses to HTTP requests, and appropriate errors when requests lack the right credentials for authorization.
 
-### Jest
-
-### Sinon?
-
-### Supertest
+#### Jest / Enzyme
+Jest & Enzyme, like Mocha & Chai, are popular testing frameworks used to test Javascript applications, and were built specifically for testing React applications. They provide the same functionality, with some additional functionality (like Snapshots) that allow testing for React-specific features.
 
 ## c) A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
 
