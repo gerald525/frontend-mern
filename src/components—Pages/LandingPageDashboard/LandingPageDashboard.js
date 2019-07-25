@@ -1,5 +1,4 @@
 import React from 'react';
-// import Loading from '../../components/Loading/Loading'
 import { Redirect, Link } from 'react-router-dom';
 const axios = require('axios')
 require('./LandingPageDashboard.css')
@@ -68,7 +67,10 @@ class LandingPageDashboard extends React.Component  {
                 pathname: "/profile",
                 state: { currentUser }
               }}><div className="mobile-profile-link"><p>Profile</p></div></Link>
-              <div className="mobile-support-link"><p>Support</p></div>
+              <div className="mobile-support-link">
+                <p>Support</p>
+                <small className="mobile-landingPage-data">[ Unavailable! ]</small>
+              </div>
             </div>
           </div>
         )

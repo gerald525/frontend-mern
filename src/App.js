@@ -29,11 +29,6 @@ class App extends React.Component {
           status: err.status
         }
       }
-      // const response = { error: {
-      //   message: 'Could not contact the server',
-      //   status: 500
-      //   }
-      // }
     }
   }
 
@@ -72,13 +67,11 @@ class App extends React.Component {
     })
   }
 
-
   render() {
     const { programData, error, currentUser } = this.state
 
       return (
         <div className="App">
-          {/* {token ? <Navbar logout={this.logout} /> : null } */}
           {error && <Error status={error.status} message={error.message}/>}
           <Routes 
             handleLogin={this.handleLogin} 
@@ -87,11 +80,9 @@ class App extends React.Component {
             loadProgramData={this.loadProgramData}
             currentUser={currentUser}
             logout={this.logout}
-            // error={error}  
           />
         </div>
       );
-    // const token = localStorage.token
   }
 }
 

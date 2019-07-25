@@ -11,7 +11,6 @@
   width: 90%;
   display: flex;
   flex-direction: column;
-  /* border: 1px solid black */
 }
 
 .mobile-programDashboard-project-one {
@@ -22,7 +21,6 @@
        rgba(71, 186, 192, 0.95), 
        rgba(71, 186, 192, 0.95)
     ),
-   /* bottom, image */
     url(../../images/MI_Img_resized.jpg);
   background-position: center;
   background-size: cover;
@@ -30,7 +28,7 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  color: var(--white)
+  color: var(--white);
 }
 
 .mobile-programDashboard-project-one p {
@@ -53,7 +51,6 @@
        rgba(255, 90, 78, 0.95), 
        rgba(255, 90, 78, 0.95)
     ),
-   /* bottom, image */
     url(../../images/MI_Img_resized.jpg);
   background-position: center;
   background-size: cover;
@@ -85,7 +82,6 @@
        rgba(147, 38, 105, 0.95), 
        rgba(147, 38, 105, 0.95)
     ),
-   /* bottom, image */
     url(../../images/MI_Img_resized.jpg);
   background-position: center;
   background-size: cover;
@@ -117,7 +113,6 @@
        rgba(131, 191, 82, 0.95), 
        rgba(131, 191, 82, 0.95)
     ),
-   /* bottom, image */
     url(../../images/MI_Img_resized.jpg);
   background-position: center;
   background-size: cover;
@@ -145,14 +140,22 @@
   width: 4.75em;
   height: 1.75em;
   background: var(--white);
-  margin: 0.5em 0 0 75%;
+  margin: 0.5em 0.5em 0 0.5em;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  align-self: flex-end;
 }
 
 .mobile-programDashboard-status-box p {
   color: var(--grey);
   font-weight: 700;
   font-size: 0.5em;
+}
+
+
+@media only screen and (min-width : 700px) {
+  .mobile-programDashboard-contents {
+    width: 75%
+  }
 }

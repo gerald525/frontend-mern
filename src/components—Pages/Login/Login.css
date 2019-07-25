@@ -1,12 +1,5 @@
 @import '../../App.css';
 
-form {
-  width: 60vw;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  font-weight: 700;
-}
 
 .forgot-password {
   color: white;
@@ -34,26 +27,34 @@ form {
   height: 100vh;
   width: 100vw;
   display: flex;
-}
-
-.login-content {
-  width: 90vw;
-  height: 90vh;
-  margin: 5vh 0 0 5vw;
-  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.mobile-logo {
-  height: 25vh;
-  width: 25vw;
-  background-image: url("../../images/MIAcademy_logo-_white.png");
-  background-size: contain;
-  margin-left: 50%;
-  margin-right: 50%;
-  background-repeat: no-repeat;
-  /* background-position: center; */
+.login-content form {
+  margin-top: 1.5em;
+  width: 95%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.login-logo {
+  height: 140px;
+  width: 140px;
+  margin-top: 0.75em;
+  padding: 0;
+}
+
+.login-content {
+  width: 95%;
+  height: 95%;
+  margin: 2.5% 0 0 2.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login-form-button {
@@ -79,25 +80,111 @@ form {
   font-size: 0.75em;
 }
 
-/* @media only screen and (min-width : 1024px) {
-  .login-background {
-    background: linear-gradient(
-      rgba(131, 191, 82, 0.85), 
-      rgba(131, 191, 82, 0.85)
-    ), 
-    /* background image of business woman smiling */
-    /* url(../../images/MI_Img_resized.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; */
-    /* height: 100vh;
-    width: 100vw; 
+@media only screen and (min-width : 700px) {
+  .login-logo {
+    margin-top: 0.75em;
   }
- } */
 
- /* Tablet in portrait mode and anything larger */
- /* @media screen and (min-height: 680px) { 
-   .mobile-logo {
-     height: 50vh;
-   }
- } */
+  .login-background {
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .login-content {
+    width: 55%;
+    height: 90%
+  }
+
+  .login-content p {
+    margin: 0.125em;
+  }
+
+  .login-content form {
+    margin-top: 0.75em
+  }
+
+  .forgot-password {
+    margin-top: 1.5em;
+  }
+
+  .form-label {
+    align-self: flex-start;
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-bottom: 0.125em
+  }
+
+}
+
+
+@media only screen and (max-width : 400px) {
+.login-logo {
+  height: 110px;
+  width: 110px;
+}
+
+.login-content form {
+  margin-top: 0.5em;
+  width: 95%;
+  height: 350px;
+}
+
+input[type="email"]
+{
+  font-size: 0.75em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  border: none
+}
+
+input[type="password"]
+{
+    font-size: 0.75em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    border: none
+}
+
+#password {
+  height: 3em;
+  padding: 0 
+}
+
+#email {
+  height: 0.5em;
+  padding: 0
+}
+
+input[type="submit"]
+{
+    font-size: 1.25em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+
+.login-form-button {
+  margin-top: 0.25em;
+  height: 20px;
+
+}
+
+.forgot-password {
+  margin-top: 3em;
+}
+
+
+}
+
+@media only screen and (max-width : 330px) {
+
+.login-content form {
+  height: 270px
+}
+
+.login-logo {
+  height: 110px;
+  width: 110px;
+}
+
+}

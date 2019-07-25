@@ -9,16 +9,13 @@ const Content = (props) => {
   
   // checking content array numbers
   const nextContent = props.match.params.id
-  console.log(`nextContent array index : ${nextContent}`)
   
   const currentContent = nextContent - 1
-  console.log(`currentContent array index : ${currentContent}`)
   
   // Display Next content number in render page
   let nextContentDisplayNumber = Number(nextContent) + 1
   
   // checking the array length of resources
-  console.log(`resource array length : ${resourceData.resources.length}`)
   let resourcesArrayLength = resourceData.resources.length
   
   let nextContentLink = "No more content!"
@@ -26,7 +23,6 @@ const Content = (props) => {
     nextContentLink = resourceData.resources[`${nextContent}`].name
   }
   const item = resourceData.resources[`${currentContent}`]
-  // console.log(nextContentLink)
   
   // linkDisplay render function
   let linkDisplay = (              
@@ -41,7 +37,7 @@ const Content = (props) => {
     let upNext = <p>Up Next!</p>
     
     // LinkDisplay conditional and upNext statement
-    if(nextContent == resourcesArrayLength) {
+    if(nextContent >= resourcesArrayLength) {
       linkDisplay = <></>
       upNext = <p></p>
       nextContentDisplayNumber = ''
@@ -69,14 +65,14 @@ const Content = (props) => {
         </div>
         <div className="mobile-project-scroll-box2">
         {resourceData && resourceData.resources.map((item, index) => (
-          <div className="mobile-project-resource-data-link" key={index}>
+          <div className="mobile-project-resource-data-link2" key={index}>
           <Link to={{
             pathname: `/content/${index + 1}`,
             state: { resourceData, projectId }
           }}>
           <p>{index + 1}. {item.name}</p>
-          {item.completed ? <p>completed</p> : <p>not completed</p>}
           </Link>
+          { item.completed ? <span role="img" aria-label="ticked box">✅</span> : <span role="img" aria-label="not ticked box"> ◻️</span> }
           </div>      
           ))}
           </div>

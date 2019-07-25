@@ -13,7 +13,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* border: 1px solid black; */
   color: var(--grey)
 }
 
@@ -83,6 +82,7 @@
   display: flex;
   flex-direction: row;
   align-items: center; 
+  justify-content: space-between;
 }
 
 .mobile-project-resource-data-link a {
@@ -94,5 +94,26 @@
   font-weight: 400;
   font-size: 0.75em;
   width: 17em;
-  height: 3em
+  height: 3em;
+  margin-left: 1em;
+}
+
+.mobile-project-resource-data-link span {
+  margin-right: 1em;
+  font-size: 1.5em
+}
+
+@media only screen and (min-width : 700px) {
+  .mobile-resources-project-box {
+    height: 14em
+  }
+}
+
+@media only screen and (max-width : 400px) {
+  .mobile-project-resource-data-link {
+    height: 3.25em;
+    padding: 0.125em;
+    font-size: 1em;
+  }
+
 }
