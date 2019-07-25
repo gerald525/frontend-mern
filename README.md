@@ -472,18 +472,34 @@ Note: refer to Excellent use of task delegation with Kanban board of tickets ass
 
 ## Testing 
 
+Our test suite covers the happy path for both frontend and backend code. 
+
 Note: Tie to user stories 
 Rubric: Flawless code flow control: documented test coverage/successful results for all user stories, including corner cases
 
+*Backend test suite*
+
+![Backend test suite](src/images/tests.png)
+
+*Frontend test suite*
+
+![Backend test suite](src/images/frontendtests.png)
+
 ### Unit testing
 
-We did unit tests for functions and components in the Learner and Manager user stories, which were the user stories that made up MVP.
+We attempted to cover all our methods and api routes with unit tests with unit tests. We used happy bath tests and unhappy path tests to ensure models were validating correctly and routes were being accessed with the correct authorization. We developed a model that can be replicated across our codebase but ran out of time to deploy it fully.
+
 
 ### Integration testing
 
-<img src=>
+The majority of our integration testing was done using Postman to test HTTP requests and endpoints were returning the correct data, as well as writing integration tests and including them in our test suite.
 
 ### E2E testing
+
+We chose to do integration and E2E testing manually rather than take the time to install and configure a framework like Cypress. It would be appropriate to deploye Cypress should the project progress and require more comprehensive automated test coverage. 
+
+Our most common methodology was to run both the front and backend code in unison and mimic user behaviour to ensure the application worked as expected. Any bugs we discovered that weren't triggering failed unit tests we would write tests for, or in cases where we had tests that weren't failing we would tweak the tests to ensure we had better coverage.
+
 
 ### Usability testing
 
