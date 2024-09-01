@@ -128,9 +128,9 @@ To run this application locally on your computer, complete the following steps.
 
 ### Downloading the code
 To download the code to your computer, navigate to the directory you want to use on your computer and install both repositories. You'll need to run the following code from the root of your directory: <br>
->Backend `git clone https://github.com/JoshTeperman/mern-project-backend.git` <br>
+>Backend `git clone https://github.com/gerald525/mern-project-backend.git` <br>
 
->Frontend: `git clone https://github.com/JoshTeperman/mern-project-backend.git` 
+>Frontend: `git clone https://github.com/gerald525/mern-project-backend.git` 
 
 You should now have a folder structure that looks like this:
 
@@ -139,9 +139,9 @@ Root Directory\
 -mern-project-frontend/
 
 Alternatively, you can download the code directly to your hard-drive: \
-https://github.com/JoshTeperman/mern-project-backend/archive/master.zip\
+https://github.com/gerald525/mern-project-backend/archive/master.zip\
 
-https://github.com/JoshTeperman/mern-project-frontend/archive/master.zip
+https://github.com/gerald525/mern-project-frontend/archive/master.zip
 
 
 ### Back End Setup
@@ -235,9 +235,9 @@ For server-side of the application, we deployed using now.sh, which allows us to
 As part of the project, we used the following resources, accessible at their links. 
 > Trello https://trello.com/invite/b/nv1QDYPb/f77e98d472c980ba113a05329a62b1e4/mern-app-dream-team
 
->Github Repository (Front end of app) https://github.com/JoshTeperman/mern-project-frontend
+>Github Repository (Front end of app) https://github.com/gerald525/mern-project-frontend
 
->Github Repository (Back end of app) https://github.com/JoshTeperman/mern-project-backend
+>Github Repository (Back end of app) https://github.com/gerald525/mern-project-backend
 
 # Application information
 The client, MI Academy, is an award-winning Melbourne start-up specialising in customised training solutions on marketing, CX, UX and innovation. 
